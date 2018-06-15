@@ -1,0 +1,51 @@
+1、solr tomcat
+
+2、mrbt_funds_solrj(tomcat 或者 jetty:run---port 9999)
+
+
+
+http://localhost:8090/mrbt_funds_solrj/castsurely/select?start=0&rows=2
+
+
+
+http://192.168.1.175:9999/mrbt_funds_solrj/castsurely/select?start=0&rows=2
+{"indexBean":[{"dT_FUND_CODE":"工银农业","dT_FUND_JC":"工银农业","dT_FUND_LEASTJZ":"工银农业","dT_FUND_MANAGER":"周玉贵","dT_TYPE":"基金性"},{"dT_FUND_CODE":"KF019","dT_FUND_JC":"工银农业1","dT_FUND_LEASTJZ":"1.2584","dT_FUND_MANAGER":"周玉贵","dT_TYPE":"基金性"}],"numFound":5,"status":0}
+
+
+
+热销
+
+http://192.168.1.175:9999/mrbt_funds_solrj/hotsales/select?start=0&rows=5
+
+
+http://localhost:8090/mrbt_funds_solrj/hotsales/select?start=0&rows=5
+
+
+
+
+推荐基金列表，返回全部数据
+json格式的
+post请求方式
+start表示开始记录数  int类型
+rows表示结束记录数    int类型
+查询返回的数量等于rows-start
+http://192.168.1.175:9999/mrbt_funds_solrj/foundrecom/select?start=0&rows=10
+
+
+
+http://localhost:8090/mrbt_funds_solrj/hotsale/select?start=0&rows=10
+http://localhost:8090/mrbt_funds_solrj/market/select?start=0&rows=10
+http://localhost:8090/mrbt_funds_solrj/castsurely/select?start=0&rows=10
+http://localhost:8090/mrbt_funds_solrj/recommend/select?start=0&rows=10
+返回值有改动
+
+http://localhost:8090/mrbt_funds_solrj/hotsale/selectall
+//查询全部数据,postrequest，没参数,每个后面都是/selectall
+http://192.168.1.175:8090/mrbt_funds_solrj/market/selectall
+http://localhost:8090/mrbt_funds_solrj/castsurely/selectall
+http://localhost:8090/mrbt_funds_solrj/recommend/selectall
+
+
+
+
+

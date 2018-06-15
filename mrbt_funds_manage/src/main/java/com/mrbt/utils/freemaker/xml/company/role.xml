@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="../xml_bean.xsd">
+	<path jsp="E:/project/mrbt/mrbt_oa/WebContent/WEB-INF/jsp/company/role" 
+	js="E:/project/mrbt/mrbt_oa/WebContent/resource/js/company/role"
+	vist-url="/rest/company/role" />
+	<title>权限管理</title>
+	<comboMaps>
+		<entry>
+			<string>r_status</string>
+			<list>
+				<TypeCombo option="0" text="有效"/>
+				<TypeCombo option="1" text="无效"/>
+			</list>
+		</entry>
+	</comboMaps>
+	<columns>
+		<column name="id" label="" id="true"/>
+		<column  name="rName" type="string" search="true" label="权限名称"></column>
+		<column  name="description" type="string" label="描述信息"></column>
+		<column  name="rStatus" format="combobox" type="combobox" label="角色状态" comboName="r_status" ></column>
+	</columns>
+</bean>

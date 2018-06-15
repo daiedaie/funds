@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.mvc.mapper.funds.FundDetailMapper" >
+	<!-- 获取基金详情基本数据 -->
+	<resultMap id="BaseResultMap" type="com.mrbt.mvc.vo.FundDetailVo">
+		<result column="f007_ths035" property="type" jdbcType="VARCHAR" />
+		<result column="name" property="type_name" jdbcType="VARCHAR" />
+		<result column="f003_ths001" property="shortName" jdbcType="VARCHAR" />
+		<result column="f004_ths038" property="state" jdbcType="VARCHAR" />
+		<result column="f002_ths001" property="code" jdbcType="VARCHAR" />
+		<result column="f004_ths054" property="scale" jdbcType="VARCHAR" />
+		<result column="f005_ths035" property="upDate" jdbcType="VARCHAR" />
+		<result column="f003_ths043" property="netValue" javaType="double" jdbcType="NUMERIC" />
+		<result column="f002_ths043" property="navTime" jdbcType="VARCHAR" />
+		<result column="f004_ths043" property="totalTalue" javaType="double" jdbcType="NUMERIC" />
+		<result column="f016_ths039z" property="ratez" javaType="double" jdbcType="NUMERIC" />
+		<result column="f016_ths039" property="rate" javaType="double" jdbcType="NUMERIC" />
+		<result column="risk_level" property="risk" jdbcType="VARCHAR" />
+		<result column="f005_ths001" property="fullName" jdbcType="VARCHAR" />
+		<result column="f026_ths035" property="fundManagerId" jdbcType="VARCHAR" />
+		<result column="f003_ths002" property="fundManager" jdbcType="VARCHAR" />
+		<result column="f028_ths035" property="custodianId" jdbcType="VARCHAR" />
+		<result column="f029_ths035" property="custodian" jdbcType="VARCHAR" />
+		<result column="f007_ths041" property="issueDate" jdbcType="VARCHAR" />
+		<result column="f010_ths035" property="perComBen" jdbcType="VARCHAR" />
+		<result column="f001_ths035" property="f001_ths035" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id = "getDetailsList" resultMap="BaseResultMap">
+		SELECT
+		f001_ths035,
+		f007_ths035,
+		fbt. NAME,
+		f003_ths001,
+		f004_ths038,
+		f002_ths001,
+		f004_ths054,
+		f005_ths035,
+		f003_ths043,
+		f002_ths043,
+		f004_ths043,
+		f016_ths039 * 0.4 AS f016_ths039z,
+		f016_ths039,
+		risk_level,
+		f005_ths001,
+		f026_ths035,
+		f003_ths002,
+		f028_ths035,
+		f029_ths035,
+		f007_ths041,
+		f010_ths035
+		FROM ths001 t1,ths035 t35,
+		(SELECT	* FROM (SELECT ths038.*	FROM (SELECT *	FROM (SELECT ths038.*, ROW_NUMBER () OVER (
+		PARTITION BY F001_THS038
+		ORDER BY
+		CTIME_THS038 DESC,
+		SEQ DESC
+		) mm FROM THS038) ths38	WHERE mm = 1) ths038,ths001 WHERE ths038.f001_ths038 = ths001.f001_ths001 and ths038.f003_ths038 = 1
+		ORDER BY ctime_ths038 DESC)) t38,
+		(SELECT	* FROM	(SELECT	ths054.* FROM (SELECT *	FROM (SELECT ths054.*, ROW_NUMBER () OVER
+		(PARTITION BY F001_THS054 ORDER BY	CTIME_THS054 DESC,SEQ DESC) mm	FROM THS054) ths54
+		WHERE mm = 1) ths054,ths001	WHERE ths054.f001_ths054 = ths001.f001_ths001
+		ORDER BY ctime_ths054 DESC)) t54,
+		(SELECT	* FROM (SELECT	ths043.* FROM (SELECT *	FROM (SELECT ths043.*, ROW_NUMBER () OVER (
+		PARTITION BY F001_THS043 ORDER BY CTIME_THS043 DESC,SEQ DESC) mm FROM THS043) ths43
+		WHERE mm = 1) ths043,ths001	WHERE ths043.f001_ths043 = ths001.f001_ths001 ORDER BY
+		ctime_ths043 DESC)) t43,
+		(SELECT	* FROM	(SELECT	ths039.* FROM (SELECT *	FROM (SELECT ths039.*, ROW_NUMBER () OVER (PARTITION BY F001_THS039
+		ORDER BY CTIME_THS039 DESC) mm FROM THS039) ths39	WHERE mm = 1) ths039,
+		ths001
+		WHERE
+		ths039.f001_ths039 = ths001.f001_ths001 and ths039.f008_ths039 = 0
+		ORDER BY
+		ctime_ths039 DESC
+		)
+		) t39,
+		(
+		SELECT
+		funds_risk.*
+		FROM
+		ths001,
+		funds_risk
+		WHERE
+		ths001.f002_ths001 = funds_risk.funds_code
+		) fr,
+		ths002 t2,
+		ths041 t41,
+		funds_base_type fbt
+		WHERE
+		t1.f001_ths001 = t35.f001_ths035
+		AND t1.f001_ths001 = t38.f001_ths038
+		AND t1.f001_ths001 = t54.f001_ths054
+		AND t1.f001_ths001 = t43.f001_ths043
+		AND t1.f001_ths001 = t39.f001_ths039
+		AND t1.f002_ths001 = fr.funds_code
+		AND t35.f026_ths035 = t2.f001_ths002
+		AND t1.f001_ths001 = t41.f001_ths041
+		AND t35.f007_ths035 = fbt. ID ORDER BY F002_THS001</select>
+	<select id="getDetailsFromId" resultMap="BaseResultMap">
+		select t.*, fr.risk_level from (select
+		f001_ths035,
+		f007_ths035,
+		fbt.name,
+		f003_ths001,
+		f004_ths038,
+		f002_ths001,
+		f004_ths054,
+		f005_ths035,
+		f003_ths043,
+		f002_ths043,
+		f004_ths043,
+		f016_ths039 * 0.4 as f016_ths039z,
+		f016_ths039,
+		f005_ths001,
+		f026_ths035,
+		f003_ths002,
+		f028_ths035,
+		f029_ths035,
+		f007_ths041,
+		f010_ths035
+		from
+		ths001 t1,
+		ths035 t35,
+		(select * from (select ths038.* from ths038, ths001 where ths038.f001_ths038 = ths001.f001_ths001 and ths038.f003_ths038 = 1 and f002_ths001 = #{0} order by ctime_ths038 desc) where rownum = 1) t38,
+		(select * from (select ths054.* from ths054, ths001 where ths054.f001_ths054 = ths001.f001_ths001 and f002_ths001 = #{0} order by ctime_ths054 desc) where rownum = 1) t54,
+		(select * from (select ths043.* from ths043, ths001 where ths043.f001_ths043 = ths001.f001_ths001 and f002_ths001 = #{0} order by ctime_ths043 desc) where rownum = 1) t43,
+		(select * from (select ths039.* from ths039, ths001 where ths039.f001_ths039 = ths001.f001_ths001 and f002_ths001 = #{0} and ths039.f008_ths039 = 0 order by ctime_ths039 desc) where rownum = 1) t39,
+		ths002 t2,
+		ths041 t41,
+		funds_base_type fbt
+		where
+		t1.f002_ths001 = #{0}
+		and t1.f001_ths001 = t35.f001_ths035
+		and t1.f001_ths001 = t38.f001_ths038
+		and t1.f001_ths001 = t54.f001_ths054
+		and t1.f001_ths001 = t43.f001_ths043
+		and t1.f001_ths001 = t39.f001_ths039
+		and t35.f026_ths035 = t2.f001_ths002
+		and t1.f001_ths001 = t41.f001_ths041
+		and t35.f007_ths035 = fbt.id) t left join funds_risk fr on t.f002_ths001 = fr.funds_code
+	</select>
+</mapper>

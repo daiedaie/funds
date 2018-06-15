@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <classPathEntry location="E:/mysql-connector-java-5.1.26-bin.jar" /> -->
+	<classPathEntry location="E:/ojdbc6.jar" />
+	<context id="context1">
+
+		<plugin type="com.mrbt.utils.mybatis.MybatisExampleRootPlugin">
+			<property name="exampleRootClass" value="com.mrbt.oa.mvc.vo.BaseExample" />
+		</plugin>
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.88:3306/mrbt_oa" 
+			userId="mrbtoa" password="mrbtoa" /> -->
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.1.91:1521:orcl" userId="mrbt"
+			password="123456" />
+		<javaModelGenerator targetPackage="com.mrbt.oa.mvc.vo.funds"
+			targetProject="mrbt_funds_manage">
+			<property name="rootClass" value="com.mrbt.oa.mvc.vo.BaseVo" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="com.mrbt.oa.mvc.mapper.funds"
+			targetProject="mrbt_funds_manage" />
+		<javaClientGenerator targetPackage="com.mrbt.oa.mvc.mapper.funds"
+			targetProject="mrbt_funds_manage" type="XMLMAPPER">
+			<property name="rootInterface" value="com.mrbt.oa.mvc.mapper.BaseMapper" />
+		</javaClientGenerator>
+
+		<!-- <table schema="" tableName="FUNDS_MARKET"> </table> <table schema="" 
+			tableName="FUNDS_MARKET_LOG"> <generatedKey column="id" sqlStatement="select 
+			FUNDS_MARKET_LOG_SEQ.nextval as ID from dual" /> </table> -->
+		<table schema="" tableName="FUNDS_KNOWLEDGE">
+			<generatedKey column="id"
+				sqlStatement="select FUNDS_KNOWLEDGE_SEQ.nextval as ID from dual" />
+		</table>
+	</context>
+</generatorConfiguration>

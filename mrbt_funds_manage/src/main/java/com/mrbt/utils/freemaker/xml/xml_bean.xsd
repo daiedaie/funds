@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="path">
+		<xs:complexType>
+			<xs:attribute name="vist-url" use="required" />
+			<xs:attribute name="jsp" use="required" type="xs:anyURI"/>
+			<xs:attribute name="js" use="required" type="xs:anyURI"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="title">
+	</xs:element>
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="TypeCombo" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="entry">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="string"/>
+				<xs:element ref="list"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="comboMaps">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="entry" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="columns">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="column" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="column">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:boolean" use="optional"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="type" use="optional" default="string">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="hidden"/>
+						<xs:enumeration value="string"/>
+						<xs:enumeration value="int"/>
+						<xs:enumeration value="date"/>
+						<xs:enumeration value="time"/>
+						<xs:enumeration value="combobox"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="format" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="date"/>
+						<xs:enumeration value="combobox"/>
+						<xs:enumeration value="time"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="label" type="xs:string" use="required"/>
+			<xs:attribute name="search" type="xs:boolean" use="optional"/>
+			<xs:attribute name="save" type="xs:boolean" use="optional"/>
+			<xs:attribute name="grid" type="xs:boolean" use="optional"/>
+			<xs:attribute name="view" type="xs:boolean" use="optional"/>
+			<xs:attribute name="update" type="xs:boolean" use="optional"/>
+			<xs:attribute name="comboName" type="xs:string" use="optional"/>
+			<xs:attribute name="width" type="xs:int" use="optional" default="200"/>
+			<xs:attribute name="labelWidth" type="xs:int" use="optional" default="200"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bean">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="path"/>
+				<xs:element ref="title"/>
+				<xs:element ref="comboMaps"/>
+				<xs:element ref="columns"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TypeCombo">
+		<xs:complexType>
+			<xs:attribute name="text" type="xs:string" use="required"/>
+			<xs:attribute name="option" type="xs:int" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="string"/>
+</xs:schema>

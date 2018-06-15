@@ -1,0 +1,167 @@
+body {
+	background: #fafafa;
+}
+.mainbox{
+	background: #c5faea;
+}
+.main{
+	width: 1000px;
+	height: 650px;
+	margin: 0px auto;
+	background: url('/images/loginbg.jpg') no-repeat;
+}
+.main .regisBox{
+	width: 320px;
+	height: 635px;
+	padding: 0px 15px 15px 15px;
+	background: #ecfbf7;
+	float: right;
+	border-radius: 4px;
+	-o-border-radius: 4px; 
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+.main .regisBox h3{
+	color: #30ace2;
+	font-size: 24px;
+	text-align: center;
+	line-height: 70px;
+	font-weight: normal;
+}
+.main .regisBox div{
+	width: 318px;
+	margin: 0 auto;
+}
+.main .regisBox div input{
+	height: 48px;
+	border-left: 1px solid #e6e6e6;
+	width: 245px;
+	padding: 0 10px;
+	font-size: 15px;
+	line-height: 48px;
+	color: #cccccc;
+	outline: none;
+}
+.main .regisBox div.username{
+	background: #ffffff url('/images/loginRegIcon.jpg') no-repeat;
+	margin-bottom: 25px;
+	height: 48px;
+	width: 271px;
+	padding-left: 47px;
+	border: 1px solid #e6e6e6;
+}
+.main .regisBox div.password{
+	background: #ffffff url('/images/loginRegIcon.jpg') 0 -96px no-repeat;
+	margin-bottom: 25px;
+	height: 48px;
+	width: 271px;
+	padding-left: 47px;
+	border: 1px solid #e6e6e6;
+}
+.main .regisBox div.tel{
+	background: #ffffff url('/images/loginRegIcon.jpg') 0 -144px no-repeat;
+	margin-bottom: 25px;
+	height: 48px;
+	width: 271px;
+	padding-left: 47px;
+	border: 1px solid #e6e6e6;
+}
+
+.main .regisBox div.code{
+	width: 318px;
+}
+.main .regisBox div.code input{
+	width: 180px;
+	height: 48px;
+	border: 1px solid #e6e6e6;
+	float: left;
+}
+.main .regisBox div.code a{
+	display: block;
+	float: left;
+	width: 103px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	color: #ffffff;
+	font-size: 14px;
+	border: 1px solid #e6e6e6;
+	margin-left: 10px;
+	background: #30ace2;
+}
+
+.main .regisBox div.tuijian{
+	width: 318px;
+	margin: 10px 0 20px 0;
+}
+.main .regisBox div.tuijian a{
+	display: block;
+	padding-left: 30px;
+	font-size: 12px;
+	line-height: 12px;
+	color: #30ace2;
+	margin: 5px 0 10px 0;
+	background: url('/images/a_zk.png') 15px 4px no-repeat;
+}
+.main .regisBox div.tuijian a.active{
+	background: url('/images/a_sq.png') 15px 4px no-repeat;
+}
+.main .regisBox div.tuijian input{
+	width: 298px;
+	height: 48px;
+	line-height: 48px;
+	border: 1px solid #e6e6e6;
+}
+.main .regisBox div.xieyi{
+	margin-bottom: 10px;
+}
+.main .regisBox div.xieyi a{
+	display: block;
+	float: left;
+	font-size: 12px;
+}
+.main .regisBox div.xieyi a.agre{
+	width: 85px;
+	height: 15px;
+	padding-left: 25px;
+	line-height: 15px;
+	background: url('/images/jzpass.jpg') 0px 0 no-repeat;
+}
+.main .regisBox div.xieyi a.xy{
+	color: #30ace2;
+	height: 15px;
+	line-height: 15px;
+}
+
+
+
+.main .regisBox div.registButton{
+	margin-bottom: 25px;
+}
+.main .regisBox div.registButton a{
+	display: block;
+	width: 318px;
+	height: 44px;
+	margin: 0px auto;
+	text-align: center;
+	line-height: 44px;
+	font-size: 18px;
+	color: #ffffff;
+	font-weight: bold;
+	background: #ea5604;
+	border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.main .regisBox p{
+	text-align: center;
+	font-size: 12px;
+	color: #a8a8a8;
+}
+.main .regisBox p a{
+	color: #a8a8a8;
+	text-decoration: underline;
+}

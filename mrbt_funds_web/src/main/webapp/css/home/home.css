@@ -1,0 +1,295 @@
+﻿body {
+	background: #fafafa;
+}
+
+.main {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+.main .main_tip {
+	padding: 0 5px;
+	height: 29px;
+	line-height: 30px;
+	border: 1px solid #e6e6e6;
+	border-top: none;
+	margin-bottom: 10px;
+}
+
+.main .main_tip a.mt_1 {
+	color:#999999;
+	width: 90px;
+	padding-left: 30px;
+	padding-right: 10px;
+	border-right: 1px solid #e6e6e6;
+	display: block;
+	float: left;
+	height: 29px;
+	background: url('/images/gonggaoicon.png') 10px 8px no-repeat;
+}
+
+.main .main_tip a.mt_2 {
+	color:#999999;
+	display: block;
+	width: 750px;
+	float: left;
+	height: 29px;
+	padding: 0 12px 0 15px;
+	border-right: 1px solid #e6e6e6;
+}
+
+.main .main_tip a.mt_2  span {
+	float: right;
+}
+
+.main .main_tip a.mt_3 {
+	color:#999999;
+	display: block;
+	width: 70px;
+	float: right;
+	text-align: center;
+}
+
+.main .rbao {
+	margin-bottom: 10px;
+}
+
+.main .rbao .rbao_left {
+	width: 698px;
+	float: left;
+	border: 1px solid #e6e6e6;
+	margin-right: 5px;
+}
+
+.main .rbao .rbao_left .product table {
+	table-layout: fixed;
+	width: 698px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.main .rbao .rbao_left .product table tr {
+	height: 32px;
+	line-height: 32px;
+}
+
+.main .rbao .rbao_left .product table tr td.title {
+	width: 190px;
+	overflow: hidden;
+	padding-left: 20px;
+}
+
+.main .rbao .rbao_left .product table tr td.title a {
+	font-size: 16px;
+	color: #666666;
+}
+
+.main .rbao .rbao_left .product table tr td.title a span {
+	background: #25a8e0;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 1px 3px;
+	margin-right: 5px;
+}
+
+.main .rbao .rbao_left .product table tr td.prdId {
+	font-size: 14px;
+	color: #999999;
+}
+.main .rbao .rbao_left .product table tr td.prdId a{
+	color: #999999;
+}
+
+.main .rbao .rbao_left .product table tr td {
+	font-size: 14px;
+	color: #999999;
+	white-space: nowrap;
+}
+
+.main .rbao .rbao_left .product table tr td.newjz {
+	width: 190px;
+	padding-left: 20px;
+}
+
+.main .rbao .rbao_left .product table tr td span {
+	font-size: 25px;
+	margin-right: 5px;
+}
+
+.main .rbao .rbao_left .product table tr td.syl {
+	
+}
+
+.main .rbao .rbao_left .product table tr td.sgfl {
+	padding-left: 20px;
+}
+
+.main .rbao .rbao_left .product table tr td.tdbuy a {
+	display: block;
+	width: 90px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #ea560e;
+	margin-left:52px;
+	border-radius: 3px;
+	-ms-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+
+.colorblue {
+	color: #25a8e0;
+}
+
+.colororg {
+	color: #ea560e;
+}
+
+.main .rbao .rbao_right {
+	float: right;
+}
+
+.main .rbao .rbao_right .rr_top {
+	margin-bottom: 10px;
+	border: 1px solid #e6e6e6;
+}
+
+.main .rbao .rbao_right .rr_bot {
+	border: 1px solid #e6e6e6;
+}
+
+.main .jjnew {
+	margin-bottom: 10px;
+}
+
+.jijinView {
+	margin-bottom: 10px;
+}
+
+.jijinView .chView .view_left {
+	float: left;
+}
+
+.jijinView .chView .view_right {
+	float: left;
+}
+
+.jijinView .chView .view_right .viewBox .j_view {
+	float: left;
+	width: 168px;
+	height: 278px;
+	padding: 15px 10px 5px 10px;
+	border: 1px solid #e6e6e6;
+	margin-left: 4px;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table {
+	table-layout: fixed;
+	width: 170px;
+	margin-bottom: 10px;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table tr {
+	height: 20px;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table tr td {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table tr td.type {
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 12px;
+	background: #25a8e0;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table tr td.name {
+	width: 70px;
+	text-align: center;
+	line-height: 20px;
+	font-size: 14px;
+	color: #999999;
+}
+
+.jijinView .chView .view_right .viewBox .j_view table tr td.id {
+	width: 50px;
+	text-align: center;
+	line-height: 20px;
+	color: #bfbfbf;
+	font-size: 12px;
+}
+
+.jijinView .chView .view_right .viewBox .j_view p.ptp {
+	padding-top: 8px;
+	border-top: 1px solid #e6e6e6;
+	font-size: 14px;
+	color: #666666;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .zx_tongji {
+	height: 120px;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .shuzhi {
+	height: 50px;
+	margin: 0 0 10px 0;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_left {
+	float: left;
+	width: 84px;
+	border-right: 1px solid #e6e6e6;
+	text-align: center;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_right {
+	float: left;
+	width: 83px;
+	text-align: center;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_left p,
+	.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_right p {
+	font-size: 25px;
+	color: #ea560e;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_left span,
+	.jijinView .chView .view_right .viewBox .j_view .shuzhi .sz_right span
+	{
+	font-size: 12px;
+	color: #999999;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.jijinView .chView .view_right .viewBox .j_view .checkBuy {
+	display: block;
+	width: 170px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	color: #ffffff;
+	font-size: 14px;
+	background: #ea560e;
+}
+
+.highcharts-legend-item, .highcharts-button {
+	display: none;
+}

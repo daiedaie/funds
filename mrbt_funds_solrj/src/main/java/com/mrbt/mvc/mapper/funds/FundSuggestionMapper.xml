@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.mvc.mapper.funds.FundSuggestionMapper" >
+	<resultMap id="FundSuggestionResultMap" type="com.mrbt.mvc.vo.FundSuggestion">
+		<result column="F002_THS001" property="suggest_code" jdbcType="VARCHAR" />
+		<result column="F003_THS001" property="suggest_name" jdbcType="VARCHAR" />
+		<result column="F004_THS001" property="suggest_pinyin" jdbcType="VARCHAR" />
+		<result column="F005_THS001" property="suggest_fullname" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getFundSuggesions" resultMap="FundSuggestionResultMap">
+		SELECT F002_THS001,F003_THS001,F004_THS001,F005_THS001 FROM THS001 t1,
+		THS035 t35,FUNDS_MARKET fm WHERE t35.F001_THS035 = t1.F001_THS001
+		AND fm.FUNDS_CODE_INNER = t35.F001_THS035
+	</select>
+</mapper>

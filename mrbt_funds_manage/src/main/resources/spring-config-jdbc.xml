@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+            http://www.springframework.org/schema/context   
+            http://www.springframework.org/schema/context/spring-context-4.1.xsd
+            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+		<property name="driver" value="${oracle_driver}" />
+		<property name="driverUrl" value="${oracle_jdbc_url}" />
+		<property name="user" value="${oracle_jdbc_user}" />
+		<property name="password" value="${oracle_jdbc_password}" />
+		<property name="maximumConnectionCount" value="${oracle_maximum_connection_count}" />
+		<property name="minimumConnectionCount" value="${oracle_minimum_connection_count}" />
+		<property name="prototypeCount" value="${oracle_prototype_count}" />
+		<property name="houseKeepingTestSql" value="${oracle_house_keeping_test_sql}" />
+		<property name="testBeforeUse" value="${oracle_testBeforeUse}" />
+		<property name="testAfterUse" value="${oracle_testAfterUse}" />
+		<property name="maximumActiveTime" value="${oracle_maximum_active_time}" />
+	</bean>
+	<bean id="daoScan" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 扫描com.mrbt.admin.mvc.mapper这个包以及它的子包下的所有映射接口类 -->
+		<property name="basePackage" value="com.mrbt.oa.mvc.mapper,com.mrbt.oa.activiti.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:com/mrbt/oa/*/mapper/**/*.xml" />
+		<!-- <property name="plugins">
+			<list>
+				<ref bean="paginationInterceptor" />
+			</list>
+		</property> -->
+	</bean>
+	<!-- <bean name="paginationInterceptor" class="com.mrbt.utils.mybatis.PaginationInterceptor"></bean> -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config expose-proxy="true" proxy-target-class="true">
+        <!-- 只对业务逻辑层实施事务 -->
+        <aop:pointcut id="txPointcut" expression="execution(* com.mrbt.oa..service..*+.*(..))"/>
+        <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+</beans>

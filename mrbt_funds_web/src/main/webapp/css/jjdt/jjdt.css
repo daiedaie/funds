@@ -1,0 +1,290 @@
+﻿body{
+	background: #fafafa;
+}
+.banner{
+	min-width: 1000px;
+	background: #7ecc98;
+	margin-bottom: 10px;
+}
+.banner .bannerbox{
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.main{
+	width: 998px;
+	margin: 18px auto;
+	background: #ffffff;
+	border: 1px solid #e6e6e6;
+}
+.main .dttitle{
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #e6e6e6;
+	padding:0 20px;
+	background: url('../../images/dtbg.png') 19px 9px no-repeat;
+}
+.main .dttitle a{
+	float: right;
+	font-size: 12px;
+	color: #30ace2;
+}
+.main .setmain{
+	width: 580px;
+	margin: 50px auto;
+}
+.setleft{
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	text-align: right;
+	margin-right: 20px;
+	float: left;
+	font-size: 14px;
+	color: #666666;
+}
+.jjname,.jjintro,.buymoney,.dtzhouqi,.nextkouk,.gmfl,.yjmoney,.truetime,.jypass{
+	height: 40px;
+	line-height: 40px;
+	margin: 0 0 20px 0;
+}
+.jjname .sjNameRight{
+	float:left;
+	font-size: 14px;
+	color: #666666;
+}
+.jjname .sjNameRight span{
+	margin-left: 15px;
+	color: #999999;
+	font-size: 12px;
+}
+.jjintro .sintroRight{
+	font-size: 14px;
+	color: #999999;
+}
+.jjintro .sintroRight span{
+	font-size: 12px;
+	margin: 0 0 0 25px;
+}
+.buymoney .gmRight input{
+	width: 127px;
+	height: 33px;
+	line-height: 33px;
+	padding: 0 10px;
+	border: 1px solid #e6e6e6;
+	background: #ffffff;
+	outline: none;
+	font-size: 14px;
+	color: #666666;
+}
+.buymoney .gmRight span{
+	font-size: 14px;
+	color: #999999;
+	margin-left: 25px;
+}
+.dtzhouqi .dtRight{
+	float: left;
+}
+.dtzhouqi .dtRight div{
+	display: block;
+	float: left;
+	width: 116px;
+	height: 33px;
+	border: 1px solid #e6e6e6;
+	margin-right: 30px;
+	background: url('../../images/select_small.png') 89px 6px no-repeat;
+	position: relative;
+}
+.dtzhouqi .dtRight div a{
+	display: block;
+	width: 116px;
+	height: 33px;
+	line-height:33px;
+	text-align: center;
+}
+.dtzhouqi .dtRight div ul{
+	display: none;
+	width: 116px;
+	position: absolute;
+	top: 33px;
+	left: 0px;
+	background: #ffffff;
+	border: 1px solid #e6e6e6;
+	border-top: none;
+}
+.dtzhouqi .dtRight div ul li{
+	display: block;
+	width: 116px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+}
+.nextkouk .nkRight{
+	float: left;
+	font-size: 14px;
+	color: #666666;
+}
+.mycard{
+	font-size: 14px;
+
+}
+.mycard .mcRight .mcrl{
+	width: 298px;
+	height: 67px;
+	float: left;
+	border: 1px solid #e6e6e6;
+}
+.mycard .mcRight .mcrl .mcrltop{
+	height: 43px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltleft{
+	float: left;
+	padding: 13px 0 0 10px;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltright{
+	width: 260px;
+	float: right;
+	position: relative;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltright a{
+	display: block;
+	height: 43px;
+	width: 240px;
+	padding: 0 10px;
+	text-align: left;
+	line-height: 43px;
+	background: url('../../images/select_big.png') 223px 7px no-repeat;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltright ul{
+	display: none;
+	width: 240px;
+	padding: 0 10px
+	border: 1px solid #e6e6e6;
+	border-top: none;
+	background: #ffffff;
+	position: absolute;
+	top: 43px;
+	left: -1px;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltright ul li{
+	display: block;
+	height: 43px;
+	line-height: 43px;
+	width: 260px;
+	text-align: left;
+}
+.mycard .mcRight .mcrl .mcrltop .mcrltright ul li:hover{
+	background: #e6e6e6;
+}
+.mycard .mcRight .mcrl .mcrlbottom{
+	text-align: center;
+}
+.mycard .mcRight .mcrR{
+	float: left;
+	height: 67px;
+	line-height: 67px;
+	padding-left: 10px;
+	text-decoration: underline;
+}
+
+.gmfl .gmRight{
+	font-size: 14px;
+	color: #666666;
+}
+.gmfl .gmRight a{
+	color: #30ace2;
+	font-size: 12px;
+}
+.gmfl .gmRight span{
+	text-decoration:line-through;
+}
+.yjmoney .ymRight{
+	font-size: 14px;
+	color: #999999;
+}
+.yjmoney .ymRight span{
+	text-decoration:line-through;	
+}
+.truetime .ttRight{
+	font-style: 12px;
+	color:#666666;
+}
+.jypass .jpRight input{
+	width: 183px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #e6e6e6;
+	padding: 0 10px;
+	font-size: 12px;
+	outline: none;
+}
+.jypass .jpRight a{
+	font-size: 12px;
+	color: #999999;
+	margin-left: 10px;
+
+}
+
+
+.xieyi{
+	width: 279px;
+	margin: 20px auto;
+}
+.xieyi a{
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	float: left;
+	font-size: 12px;
+	color: #666666;
+	margin-right: 10px;
+}
+.xieyi a.check{
+	width: 16px;
+	height: 16px;
+	border: 1px solid #e6e6e6;
+}
+.xieyi a.active{
+	background: url('../../images/checkbox.png') no-repeat;
+}
+.xieyi a span{
+	color: #30ace2;
+	margin-left: 5px;
+}
+
+.button{
+	width: 279px;
+	margin: 20px auto;
+}
+.button a{
+	display: block;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+}
+.button a.yes{
+	width: 128px;
+	height: 35px;
+	line-height: 35px;
+	color: #ffffff;
+	background: #30ace2;
+	margin-right: 20px;
+	border-radius: 3px;
+	-ms-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.button a.no{
+	width: 126px;
+	height: 33px;
+	border: 1px solid #e6e6e6;
+	color: #999999;
+	background: #ffffff;
+	line-height: 33px;
+	border-radius: 3px;
+	-ms-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.markt.dao.MarktMapper">
+	<resultMap type="java.util.HashMap" id="hm"></resultMap>
+	<resultMap type="java.util.List" id="ls"></resultMap>
+		
+	<select id="queryLatestNetValue" resultMap="hm"  parameterType="java.lang.String">
+		SELECT
+			F003_THS043 VALS,
+			TO_CHAR (CTIME_THS043, 'YYYY/MM/DD') DATES
+		FROM
+			(
+				SELECT
+					ths043.F003_THS043,
+					ths043.CTIME_THS043
+				FROM
+					THS001 ths001,
+					THS035 ths035,
+					THS043 ths043
+				WHERE
+					ths001.F001_THS001 = ths035.F001_THS035
+				AND ths035.F001_THS035 = THS043.F001_THS043
+				AND ths001.F002_THS001 = #{fundCode}
+				ORDER BY
+					ths043.CTIME_THS043 DESC
+			)
+		WHERE
+			ROWNUM <![CDATA[< 31 ]]> 
+		ORDER BY 
+			CTIME_THS043 ASC 
+	</select>
+	
+	<select id="queryFundCompanyShortName" resultType="java.lang.String" >
+		SELECT THS002.F003_THS002 name FROM "MRBT"."THS002" THS002
+	</select>
+</mapper>
+

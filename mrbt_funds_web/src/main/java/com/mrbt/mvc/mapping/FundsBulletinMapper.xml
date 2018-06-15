@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.mvc.dao.FundsBulletinMapper" >
+  <resultMap id="BaseResultMap" type="com.mrbt.mvc.model.FundsBulletin" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ON_LINE" property="onLine" jdbcType="DECIMAL" />
+    <result column="TEXT" property="text" jdbcType="OTHER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, CREATE_TIME, ON_LINE, TEXT
+  </sql>
+  <select id="queryNewestOne" resultMap="BaseResultMap">
+  	<!-- SELECT ID,TITLE,CREATE_TIME,ON_LINE,IMG_URL,SHOW_LEVEL,LINK_URL FROM FUNDS_BANNER_LIST ORDER BY CREATE_TIME DESC -->
+  	SELECT <include refid="Base_Column_List"></include> FROM (SELECT <include refid="Base_Column_List"></include> FROM FUNDS_BULLETIN WHERE ON_LINE = 1 ORDER BY CREATE_TIME DESC) WHERE ROWNUM = 1
+  </select>
+</mapper>

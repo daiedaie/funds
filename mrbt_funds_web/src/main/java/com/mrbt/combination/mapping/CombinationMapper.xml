@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.combination.dao.CombinationMapper">
+	<resultMap type="java.util.HashMap" id="hm"></resultMap>
+	<resultMap type="java.util.List" id="ls"></resultMap>
+		
+	<select id="queryCombinationList" resultType="java.util.HashMap" parameterType="java.math.BigDecimal">
+		SELECT  
+			FPT."ID" COMBOID, 
+			FPT."NAME" COMBONAME,  
+			FPR.FUNDS_CODE FUNDCODE, 
+			FPR.RATIO RATIO, 
+			FPR.FUNDS_CODE_INNER INNERCODE, 
+			FBT.NAME TYPENAME, 
+			T35.F002_THS035 SHORTNAME 
+		FROM 
+			"MRBT"."FUNDS_PACKAGE_TYPE" FPT
+		LEFT JOIN FUNDS_PACKAGE_RATIO FPR ON FPT."ID" = FPR.TYPE_ID 
+		LEFT JOIN THS035 T35 ON T35.F001_THS035 = FPR.FUNDS_CODE_INNER 
+		LEFT JOIN FUNDS_BASE_TYPE FBT ON T35.F007_THS035 = FBT.ID 
+		WHERE 
+			FPT.ON_LINE = 1   AND  FPT."ID" = #{id}
+	</select>
+	
+	<select id="queryCombinationType" resultType="java.util.HashMap">
+		SELECT   
+			FPT."ID" COMBOID,  
+			FPT."NAME" COMBONAME,
+			FPT."CONF_ANALYZE" ANALYZE  
+		FROM 
+			"MRBT"."FUNDS_PACKAGE_TYPE" FPT 
+		WHERE  
+			FPT.ON_LINE = 1  
+	</select>
+</mapper>

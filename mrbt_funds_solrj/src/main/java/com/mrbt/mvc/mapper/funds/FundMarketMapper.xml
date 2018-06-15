@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.mvc.mapper.funds.FundMarketMapper" >
+	<resultMap id="FundMarketResultMap" type="com.mrbt.mvc.vo.FundMarketVo" >
+		<result column="NAME" property="market_fund_type" jdbcType="VARCHAR" />
+		<result column="F002_THS035" property="market_fund_shortname" jdbcType="VARCHAR" />
+		<result column="F005_THS035" property="market_fund_upDate" jdbcType="VARCHAR" />
+		<result column="F003_THS035" property="market_fund_name" jdbcType="VARCHAR" />
+		<result column="F002_THS001" property="market_fund_code" jdbcType="VARCHAR" />
+		<result column="F004_THS001" property="market_fund_pinyin" jdbcType="VARCHAR" />
+		<result column="F004_THS054" property="market_fund_scale" javaType="double" jdbcType="NUMERIC" />
+		<result column="F016_THS039" property="market_fund_buyrate" javaType="double" jdbcType="NUMERIC" />
+		<result column="F003_THS038" property="market_fund_castsurely" jdbcType="VARCHAR" />
+		<result column="F002_THS002" property="market_fund_company" jdbcType="VARCHAR" />
+		<result column="F003_THS002" property="market_fund_shortcompany" jdbcType="VARCHAR" />
+		<result column="HOTSALE" property="market_fund_hotsale" jdbcType="DECIMAL" />
+		<result column="F004_THS036" property="market_fund_manager" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="market_fund_isrecommcreatetime" jdbcType="VARCHAR" />
+		<result column="IS_RECOMM" property="market_fund_isrecomm" jdbcType="VARCHAR" />
+		<result column="RECOMM_ORDER" property="market_fund_recommorder" javaType="int" jdbcType="NUMERIC" />
+		<result column="FUNDS_CODE_INNER" property="market_fund_codeinner" jdbcType="VARCHAR" />
+		<result column="RECOMM_REASON" property="market_fund_recommendreason" jdbcType="VARCHAR" />
+		<result column="FUNDS_THEME" property="market_fund_theme" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id = "NetValueCodeResultMap" type="com.mrbt.mvc.model.funds.NetValueAndCode">
+		<result column="F002_THS001" property="fundCode" jdbcType="VARCHAR" />
+		<result column="F003_THS043" property="netValue" jdbcType="DECIMAL" />
+	</resultMap>
+	<resultMap id = "FundRecomPeriodGainResultMap" type="com.mrbt.mvc.model.funds.FundRecomPeriodGain">
+		<result column="F003_THS043" property="gain" javaType="double" jdbcType="NUMERIC" />
+	</resultMap>
+
+	<!--根据同花顺内部ID和时间查询净值-->
+	<select id="getFundRecomPeriodGain" resultMap="FundRecomPeriodGainResultMap" parameterType="java.lang.String">SELECT F003_THS043 from THS043 where F001_THS043 = #{innercode,jdbcType=VARCHAR}
+		AND TO_CHAR (CTIME_THS043, 'yyyy-mm-dd') = #{date,jdbcType=VARCHAR}</select>
+
+	<!--根据时间和基金代码查询指定时间后的净值-->
+	<select id ="selectNetValueByDateAndCode" resultMap="NetValueCodeResultMap" parameterType="java.lang.String">SELECT *　FROM (SELECT ths001.F002_THS001,ths035.F001_THS035,ths043.F003_THS043,ths043.CTIME_THS043
+		FROM THS001 ths001,THS035 ths035,(SELECT *	FROM THS043	WHERE
+		TO_CHAR (CTIME_THS043, 'yyyy-mm-dd') &lt;#{date,jdbcType=VARCHAR})
+		ths043 WHERE ths001.F001_THS001 = ths035.F001_THS035 AND ths035.F001_THS035 = ths043.F001_THS043
+		AND ths001.F002_THS001=#{fundcode,jdbcType=VARCHAR} ORDER BY CTIME_ths043 DESC) where ROWNUM = 1</select>
+
+	<!--基金超市索引查询的部分字段值(类型、名称、代码、规模、申购费率、交易类型(定投)、公司、热销类型等,基金经理)-->
+	<select id="selectFundMarketList" resultMap="FundMarketResultMap">SELECT
+		F002_THS001,
+		F004_THS001,
+		F002_THS002,
+		F003_THS002,
+		NAME,
+		F002_THS035,
+		F003_THS035,
+		F005_THS035,
+		F004_THS054,
+		F016_THS039,
+		F003_THS038,
+		F008_THS035,
+		HOTSALE,
+		F004_THS036,
+		FUNDS_CODE,
+		CREATE_TIME,
+		IS_RECOMM,
+		RECOMM_ORDER,
+		FUNDS_CODE_INNER,
+		RECOMM_REASON,
+		FUNDS_THEME
+		FROM
+		(
+		(
+		SELECT
+		t1.F002_THS001,
+		t1.F001_THS001,
+		t1.F004_THS001,
+		t2.F002_THS002,
+		t2.F003_THS002,
+		t35.F005_THS035,
+		t35.F007_THS035,
+		t35.F002_THS035,
+		t35.F003_THS035,
+		t35.F001_THS035,
+		t35.F008_THS035,
+		fbt. NAME,
+		fm.FUNDS_CODE,
+		fm.CREATE_TIME,
+		fm.IS_RECOMM,
+		fm.RECOMM_ORDER,
+		fm.FUNDS_CODE_INNER,
+		fm.RECOMM_REASON,
+		fm.FUNDS_THEME
+		FROM
+		THS001 t1,
+		THS002 t2,
+		THS035 t35,
+		FUNDS_BASE_TYPE fbt,
+		funds_market fm
+		WHERE
+		t35.f001_ths035 = fm.funds_code_inner
+		AND t1.F001_THS001 = t35.F001_THS035
+		AND t35.F026_THS035 = t2.F001_THS002
+		AND t35.F007_THS035 = fbt. ID
+		) aa
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS054,
+		F004_THS054,
+		HOTSALE
+		FROM
+		(
+		SELECT
+		F001_THS054,
+		F004_THS054,
+		(F004_THS054 - F005_THS054) AS HOTSALE,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS054
+		ORDER BY
+		CTIME_THS054 DESC
+		) mm
+		FROM
+		THS054
+		)
+		WHERE
+		mm = 1
+		) ths054 ON aa.F001_THS001 = ths054.F001_THS054
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS039,
+		F016_THS039
+		FROM
+		(
+		SELECT
+		F001_THS039,
+		F016_THS039,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS039
+		ORDER BY
+		CTIME_THS039 DESC
+		) mm
+		FROM
+		THS039
+		)
+		WHERE
+		mm = 1
+		) ths039 ON aa.F001_THS001 = ths039.F001_THS039
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS038,
+		F003_THS038
+		FROM
+		(
+		SELECT
+		F001_THS038,
+		F003_THS038,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS038
+		ORDER BY
+		CTIME_THS038 DESC,
+		SEQ DESC
+		) mm
+		FROM
+		THS038
+		)
+		WHERE
+		mm = 1
+		) ths038 ON aa.F001_THS001 = ths038.F001_THS038
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS036,
+		F004_THS036
+		FROM
+		(
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		F001_THS036,
+		F004_THS036,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS036
+		ORDER BY
+		CTIME_THS036 DESC,
+		SEQ DESC
+		) mm
+		FROM
+		THS036
+		WHERE
+		F006_THS036 IS NULL
+		)
+		WHERE
+		mm = 1
+		)
+		) ths036 ON aa.F001_THS001 = ths036.F001_THS036
+		)
+		ORDER BY
+		F002_THS001 ASC</select>
+	<!--根据时间查询净值-->
+	<select id ="selectNetValueByDate" resultMap="NetValueCodeResultMap" parameterType="java.lang.String">SELECT
+		t1.F002_THS001,
+		t43.F003_THS043
+		FROM
+		THS001 t1,
+		THS035 t35,
+		funds_market fm,
+		(
+		SELECT
+		*
+		FROM
+		THS043
+		WHERE
+		TO_CHAR (CTIME_THS043, 'yyyy-mm-dd') = # { DATE,
+		jdbcType = VARCHAR }
+		) t43
+		WHERE t35.f001_ths035 = fm.funds_code_inner AND
+		t1.F001_THS001 = t35.F001_THS035
+		AND t35.F001_THS035 = t43.F001_THS043
+		ORDER BY
+		t1.F002_THS001 ASC</select>
+	<select id = "selectMarketVoByFundCode" resultMap="FundMarketResultMap" parameterType="java.lang.String">SELECT * from (
+		SELECT
+		F002_THS001,
+		F004_THS001,
+		F002_THS002,
+		F003_THS002,
+		NAME,
+		F002_THS035,
+		F003_THS035,
+		F005_THS035,
+		F004_THS054,
+		F016_THS039,
+		F003_THS038,
+		F008_THS035,
+		HOTSALE,
+		F004_THS036
+		FROM
+		(
+		(
+		SELECT
+		t1.F002_THS001,
+		t1.F001_THS001,
+		t1.F004_THS001,
+		t2.F002_THS002,
+		t2.F003_THS002,
+		t35.F005_THS035,
+		t35.F007_THS035,
+		t35.F002_THS035,
+		t35.F003_THS035,
+		t35.F001_THS035,
+		t35.F008_THS035,
+		fbt. NAME,
+		fm.FUNDS_CODE,
+		fm.CREATE_TIME,
+		fm.IS_RECOMM,
+		fm.RECOMM_ORDER,
+		fm.FUNDS_CODE_INNER,
+		fm.RECOMM_REASON,
+		fm.FUNDS_THEME
+		FROM
+		THS001 t1,
+		THS002 t2,
+		THS035 t35,
+		FUNDS_BASE_TYPE fbt,
+		funds_market fm
+		WHERE t1.F002_THS001=#{fundcode,jdbcType=VARCHAR} AND
+		t35.f001_ths035 = fm.funds_code_inner
+		AND t1.F001_THS001 = t35.F001_THS035
+		AND t35.F026_THS035 = t2.F001_THS002
+		AND t35.F007_THS035 = fbt. ID
+		) aa
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS054,
+		F004_THS054,
+		HOTSALE
+		FROM
+		(
+		SELECT
+		F001_THS054,
+		F004_THS054,
+		(F004_THS054 - F005_THS054) AS HOTSALE,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS054
+		ORDER BY
+		CTIME_THS054 DESC
+		) mm
+		FROM
+		THS054
+		)
+		WHERE
+		mm = 1
+		) ths054 ON aa.F001_THS001 = ths054.F001_THS054
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS039,
+		F016_THS039
+		FROM
+		(
+		SELECT
+		F001_THS039,
+		F016_THS039,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS039
+		ORDER BY
+		CTIME_THS039 DESC
+		) mm
+		FROM
+		THS039
+		)
+		WHERE
+		mm = 1
+		) ths039 ON aa.F001_THS001 = ths039.F001_THS039
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS038,
+		F003_THS038
+		FROM
+		(
+		SELECT
+		F001_THS038,
+		F003_THS038,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS038
+		ORDER BY
+		CTIME_THS038 DESC,
+		SEQ DESC
+		) mm
+		FROM
+		THS038
+		)
+		WHERE
+		mm = 1
+		) ths038 ON aa.F001_THS001 = ths038.F001_THS038
+		LEFT OUTER JOIN (
+		SELECT
+		F001_THS036,
+		F004_THS036
+		FROM
+		(
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		F001_THS036,
+		F004_THS036,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS036
+		ORDER BY
+		CTIME_THS036 DESC,
+		SEQ DESC
+		) mm
+		FROM
+		THS036
+		WHERE
+		F006_THS036 IS NULL
+		)
+		WHERE
+		mm = 1
+		)
+		) ths036 ON aa.F001_THS001 = ths036.F001_THS036
+		)
+		ORDER BY
+		F002_THS001 ASC) WHERE ROWNUM = 1</select>
+	<!--根据基金代码查询某个基金代码的最新复权净值-->
+	<select id = "selectNetValueFuQuanByCodeLatest" resultMap="NetValueFuQuanResultMap" parameterType="java.lang.String">SELECT * FROM (SELECT ths001.F002_THS001,ths043.F005_THS043,ths043.CTIME_THS043
+		FROM THS001 ths001,THS035 ths035,THS043 ths043 WHERE ths001.F002_THS001 = #{fundcode,jdbcType=VARCHAR}
+		AND ths001.F001_THS001 = ths035.F001_THS035
+		AND ths035.F001_THS035 = ths043.F001_THS043
+		ORDER BY
+		ths043.CTIME_THS043 DESC) WHERE ROWNUM = 1</select>
+	<!--根据基金代码和时间查询复权净值用于涨幅计算-->
+	<select id = "selectNetValueFuQuanByCodeAndDate" resultMap="NetValueFuQuanResultMap" parameterType="java.lang.String">SELECT * FROM (SELECT ths001.F002_THS001,ths043.F005_THS043,ths043.CTIME_THS043 FROM THS001 ths001,THS035 ths035,
+		THS043 ths043 WHERE	ths001.F002_THS001 = #{fundcode,jdbcType=VARCHAR}
+		AND TO_CHAR (CTIME_THS043, 'yyyy-mm-dd') = #{date,jdbcType=VARCHAR}
+		AND ths001.F001_THS001 = ths035.F001_THS035
+		AND ths035.F001_THS035 = ths043.F001_THS043
+		ORDER BY ths043.CTIME_THS043 DESC) WHERE ROWNUM = 1</select>
+	<!--根据基金代码和时间查询小于指定时间的复权净值-->
+	<select id = "selectNetValueFuQuanByCodeAndLessThanDate" resultMap="NetValueFuQuanResultMap" parameterType="java.lang.String">
+		SELECT ths001.F002_THS001,ths043.F005_THS043,ths043.CTIME_THS043 FROM THS001 ths001,THS035 ths035,
+		THS043 ths043 WHERE	ths001.F002_THS001 = #{fundcode,jdbcType=VARCHAR} AND TO_CHAR (CTIME_THS043, 'yyyy-mm-dd') <![CDATA[ <  ]]> #{date,jdbcType=VARCHAR}
+		AND ths001.F001_THS001 = ths035.F001_THS035	AND ths035.F001_THS035 = ths043.F001_THS043	ORDER BY ths043.CTIME_THS043 DESC
+	</select>
+	<!--查询复权净值-->
+	<resultMap id = "NetValueFuQuanResultMap" type="com.mrbt.mvc.model.funds.FundFuQuanNetValue">
+		<result column="F002_THS001" property="fundCode" jdbcType="VARCHAR" />
+		<result column="F005_THS043" property="fuQuanNetValue" javaType="double" jdbcType="NUMERIC" />
+		<result column="CTIME_THS043" property="ctimeThs043" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<!--查询单个基金的复权净值-->
+	<select id = "selectNetValueFuQuanByFundCode" resultMap="NetValueFuQuanResultMap" parameterType="java.lang.String">SELECT
+		t1.F002_THS001,
+		t43.F005_THS043,
+		t43.CTIME_THS043
+		FROM
+		THS001 t1,
+		THS035 t35,
+		funds_market fm,
+		(
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		F001_THS043,
+		F005_THS043,
+		CTIME_THS043,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS043
+		ORDER BY
+		CTIME_THS043 DESC
+		) mm
+		FROM
+		THS043
+		)
+		WHERE
+		mm = 1
+		) t43
+		WHERE t35.f001_ths035 = fm.funds_code_inner AND t1.F002_THS001 = #{fundcode,jdbcType=VARCHAR}
+		AND t1.F001_THS001 = t35.F001_THS035
+		AND t35.F001_THS035 = t43.F001_THS043</select>
+	<select id = "selectNetValueFuQuan" resultMap="NetValueFuQuanResultMap">SELECT
+		t1.F002_THS001,
+		t43.F005_THS043,
+		t43.CTIME_THS043
+		FROM
+		THS001 t1,
+		THS035 t35,
+		funds_market fm,
+		(
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		F001_THS043,
+		F005_THS043,
+		CTIME_THS043,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS043
+		ORDER BY
+		CTIME_THS043 DESC
+		) mm
+		FROM
+		THS043
+		)
+		WHERE
+		mm = 1
+		) t43
+		WHERE
+		t35.f001_ths035 = fm.funds_code_inner
+		AND t1.F001_THS001 = t35.F001_THS035
+		AND t35.F001_THS035 = t43.F001_THS043
+		ORDER BY
+		t1.F002_THS001 ASC</select>
+	<!--查询基金的最新前两条数据,返回单位净值和累计净值和基金代码-->
+	<resultMap id = "FundLatestNetValueResultMap" type="com.mrbt.mvc.model.funds.FundLatestNetValue">
+		<result column="F002_THS001" property="fundCode" jdbcType="VARCHAR" />
+		<result column="F003_THS043" property="unitNetValue" javaType="double" jdbcType="NUMERIC" />
+		<result column="F004_THS043" property="cumulativeNetValue" javaType="double" jdbcType="NUMERIC" />
+		<result column="CTIME_THS043" property="ctimeThs034" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<select id = "selectNetValueLatest" resultMap="FundLatestNetValueResultMap">
+		SELECT
+		t1.F002_THS001,
+		t43.F003_THS043,
+		t43.F004_THS043,
+		t43.CTIME_THS043
+		FROM
+		THS001 t1,
+		THS035 t35,funds_market fm,
+		(
+		SELECT
+		*
+		FROM
+		(
+		SELECT
+		F001_THS043,
+		F003_THS043,
+		F004_THS043,
+		CTIME_THS043,
+		ROW_NUMBER () OVER (
+		PARTITION BY F001_THS043
+		ORDER BY
+		CTIME_THS043 DESC
+		) mm
+		FROM
+		THS043
+		)
+		WHERE
+		mm <![CDATA[ = 1 ]]>
+		) t43
+		WHERE t35.f001_ths035 = fm.funds_code_inner AND
+		t1.F001_THS001 = t35.F001_THS035
+		AND t35.F001_THS035 = t43.F001_THS043
+		ORDER BY
+		t1.F002_THS001 ASC,t43.CTIME_THS043 DESC
+	</select>
+</mapper>

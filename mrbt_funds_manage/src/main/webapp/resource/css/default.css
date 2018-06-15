@@ -1,0 +1,223 @@
+*{font-size:14px; font-family:Tahoma,Verdana,微软雅黑,宋体}
+body{background:#D2E0F2; }
+a{ color:Black; text-decoration:none;}
+a:hover{ color:Red; text-decoration:underline;}
+.textbox03 {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,宋体;line-height: 14px; background-color: #fff;  height: auto; font-size: 16px;  font-weight: bold; width: 190px; }
+
+.txt01{font:Verdana, Geneva, sans-serif,宋体;padding:3px 2px 2px 2px; border-width:1px; border-color:#ddd;  color:#000;}
+.txt {border: #878787 1px solid;padding: 4px 3px;font:Verdana, Geneva, sans-serif,宋体;line-height: 14px; background-color: #fff;  height: auto; font-size: 16px;}
+.footer{text-align:center;color:#15428B; margin:0px; padding:0px;line-height:23px; font-weight:bold;}
+
+.head a{color:White;text-decoration:underline;}
+
+.easyui-accordion ul{list-style-type:none;margin:0px; padding:10px;}
+.easyui-accordion ul li{ padding:0px;}
+.easyui-accordion ul li a{display: block;height:24px;}
+.easyui-accordion ul li div{margin:2px 0px;padding-left:10px;padding-top:2px;}
+.easyui-accordion ul li div.hover{border:1px dashed #99BBE8; background:#E0ECFF;cursor:pointer;}
+.easyui-accordion ul li div.hover a{color:#416AA3;}
+.easyui-accordion ul li div.selected{border:1px solid #99BBE8; background:#E0ECFF;cursor:default;}
+.easyui-accordion ul li div.selected a{color:#416AA3; font-weight:bold;}
+
+
+
+.icon{padding:2px 9px; background:url(/resource/images/tab/easyUI/themes/icons.png) no-repeat; }
+.icon-sys{ background:url(/resource/images/directory.png) no-repeat;}
+.icon-add{background-position: -19px 0px;}
+.icon-nav{background-position: -100px -18px;}
+.icon-users{background-position: -100px -480px;}
+.icon-role{background-position: -360px -200px;}
+.icon-set{background-position: -380px -200px;}
+.icon-log{background-position: -380px -80px;}
+.icon-blank{
+	background:url('/easyUI/themes/icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('/easyUI/themes/icons/edit_add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('/easyUI/themes/icons/pencil.png') no-repeat center center;
+}
+.icon-clear{
+	background:url('/easyUI/themes/icons/clear.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('/easyUI/themes/icons/edit_remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('/easyUI/themes/icons/filesave.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('/easyUI/themes/icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('/easyUI/themes/icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('/easyUI/themes/icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('/easyUI/themes/icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('/easyUI/themes/icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('/easyUI/themes/icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('/easyUI/themes/icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('/easyUI/themes/icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('/easyUI/themes/icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('/easyUI/themes/icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('/easyUI/themes/icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('/easyUI/themes/icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('/easyUI/themes/icons/tip.png') no-repeat center center;
+}
+.icon-filter{
+	background:url('/easyUI/themes/icons/filter.png') no-repeat center center;
+}
+.icon-man{
+	background:url('/easyUI/themes/icons/man.png') no-repeat center center;
+}
+.icon-lock{
+	background:url('/easyUI/themes/icons/lock.png') no-repeat center center;
+}
+.icon-more{
+	background:url('/easyUI/themes/icons/more.png') no-repeat center center;
+}
+
+
+.icon-mini-add{
+	background:url('/easyUI/themes/icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('/easyUI/themes/icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('/easyUI/themes/icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+	background:url('/easyUI/themes/icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('/easyUI/themes/icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('/easyUI/themes/icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('/easyUI/themes/icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('/easyUI/themes/icons/large_chart.png') no-repeat center center;
+}
+.icon-excel{
+	background:url('/easyUI/themes/icons/customed/excel.png') no-repeat;
+}
+.icon-word{
+	background:url('/easyUI/themes/icons/customed/word.png') no-repeat;
+}
+.icon-organ{
+	background:url('/easyUI/themes/icons/customed/organ.png') no-repeat;
+}
+.icon-lock{
+	background:url('/easyUI/themes/icons/customed/lock.png') no-repeat;
+}
+.icon-alarm{
+	background:url('/easyUI/themes/icons/customed/alarm.png') no-repeat;
+}
+.icon-view{
+	background:url('/easyUI/themes/icons/customed/view.png') no-repeat;
+}
+.icon-pie{
+	background:url('/easyUI/themes/icons/customed/pie.png') no-repeat;
+}
+.icon-bar{
+	background:url('/easyUI/themes/icons/customed/bar.png') no-repeat;
+}
+.icon-curve{
+	background:url('/easyUI/themes/icons/customed/curve.png') no-repeat;
+}
+.icon-computer{
+	background:url('/easyUI/themes/icons/customed/computer.png') no-repeat;
+}
+.icon-house{
+	background:url('/easyUI/themes/icons/customed/house.png') no-repeat;
+}
+.icon-key{
+	background:url('/easyUI/themes/icons/customed/key.png') no-repeat;
+}
+.icon-photo{
+	background:url('/easyUI/themes/icons/customed/photo.png') no-repeat;
+}
+.icon-user{
+	background:url('/easyUI/themes/icons/customed/user.png') no-repeat;
+}
+.icon-group{
+	background:url('/easyUI/themes/icons/customed/group.png') no-repeat;
+}
+.icon-group-key{
+	background:url('/easyUI/themes/icons/customed/group_key.png') no-repeat;
+}
+.icon-telephone{
+	background:url('/easyUI/themes/icons/customed/telephone.png') no-repeat;
+}
+.icon-phone{
+	background:url('/easyUI/themes/icons/customed/phone.png') no-repeat;
+}
+.icon-table{
+	background:url('/easyUI/themes/icons/customed/table.png') no-repeat;
+}
+.icon-book{
+	background:url('/easyUI/themes/icons/customed/book.png') no-repeat;
+}
+.icon-comment{
+	background:url('/easyUI/themes/icons/customed/comment.png') no-repeat;
+}
+.icon-date{
+	background:url('/easyUI/themes/icons/customed/date.png') no-repeat;
+}
+.icon-email{
+	background:url('/easyUI/themes/icons/customed/email.png') no-repeat;
+}
+.icon-first{
+	background:url('/easyUI/themes/icons/customed/first.png') no-repeat;
+}
+.icon-last{
+	background:url('/easyUI/themes/icons/customed/last.png') no-repeat;
+}
+.icon-next{
+	background:url('/easyUI/themes/icons/customed/next.png') no-repeat;
+}
+.icon-previous{
+	background:url('/easyUI/themes/icons/customed/previous.png') no-repeat;
+}
+.icon-stop{
+	background:url('/easyUI/themes/icons/customed/stop.png') no-repeat;
+}
+.icon-setting{
+	background:url('/easyUI/themes/icons/customed/setting.png') no-repeat;
+}
+.icon-batch-add{
+	background:url('/easyUI/themes/icons/customed/batch_add.png') no-repeat;
+}
+.icon-expand{
+	background:url('/easyUI/themes/icons/customed/expand.png') no-repeat;
+}
+.icon-collapse{
+	background:url('/easyUI/themes/icons/customed/collapse.png') no-repeat;
+}

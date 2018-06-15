@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.contrast.dao.ContrastMapper">
+	
+	<resultMap type="com.mrbt.contrast.model.FundCompany" id="fundCompanyMap">
+		<result column="funds_code" property="fundCode" jdbcType="VARCHAR" />
+		<result column="f002_ths035" property="fundName" jdbcType="VARCHAR" />
+		<result column="f026_ths035" property="companyId" jdbcType="VARCHAR" />
+		<result column="f003_ths002" property="companyName" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 获取基金公司及对应的基金列表，用于顶部的联动 -->
+	<select id="getFundCompany" resultMap="fundCompanyMap">
+	SELECT 
+		fm.funds_code,
+		t35.f002_ths035,
+		f026_ths035,
+		f003_ths002
+	FROM 
+		ths035 t35,
+		funds_market fm,
+		ths002 t2
+	WHERE
+		t35.f001_ths035 = fm.funds_code_inner
+		and t35.f026_ths035 = t2.f001_ths002
+	ORDER BY
+		t35.f027_ths035
+	</select>
+	
+	<!-- 获取风险等级 -->
+	<select id="getFundRisk" resultType="string">
+		select risk_level from funds_risk where funds_code = #{0}
+	</select>
+	
+	<!-- 获取申购状态，赎回状态 -->
+	<select id="getApplyRedeemState" resultMap="selectContrastData">
+		SELECT
+			 t.f004_ths038
+		FROM
+		  (SELECT t38.f004_ths038
+		  FROM ths038 t38,
+		    ths001 t1
+		  WHERE t38.f001_ths038 = t1.f001_ths001
+		  AND t1.f002_ths001    = #{0}
+		  AND t38.f003_ths038   = #{1}
+		  ORDER BY t38.ctime_ths038 DESC
+		  ) t
+		WHERE rownum = 1
+	</select>
+	
+	<!-- 获取累计分红 -->
+	<select id="getCumulativeDividend" resultMap="selectContrastData">
+		SELECT AVG(f003_ths050)/10 as avgNum
+		FROM ths050 t50,
+		  ths001 t1
+		WHERE t50.f001_ths050 = t1.f001_ths001
+		AND f002_ths001 = #{0}					 
+	</select>
+	
+	<!-- 获取基金经理信息 -->
+	<select id="getManagersInfo" resultMap="selectContrastData">
+		SELECT 
+			t36.f003_ths036,
+		 	t36.f004_ths036,
+		  	t36.f005_ths036,
+		  	t37.f004_ths037
+		FROM 
+			ths001 t1,
+		  	ths036 t36,
+		  	ths037 t37
+		WHERE 
+			t1.f002_ths001 = '001454'
+			AND t1.f001_ths001   = t36.f001_ths036
+			AND t36.f003_ths036  = t37.f001_ths037
+	</select>
+	
+	<!-- 获取基金经理管理基金的数量 -->
+	<select id="getAdminCount" resultType="Integer">
+		select count(f001_ths036) as admin_num from ths036 where f006_ths036 is null and f003_ths036 = #{0}
+	</select>
+	
+	<!-- 获取5个行业配置 -->
+	<select id="getIndustryDistribution" resultType="String">
+		SELECT 
+			DISTINCT t.f007_ths047
+		FROM
+	  		(SELECT t47.f007_ths047
+	  		FROM ths047 t47,
+	    	ths001 t1
+	  		WHERE t47.f001_ths047 = t1.f001_ths001
+	  		AND t1.f002_ths001    = '001277'
+	  		ORDER BY t47.ctime_ths047
+	  		) t
+		WHERE
+			rownum &lt; 6
+	</select>
+	
+	<resultMap type="com.mrbt.contrast.model.SelectContrastData" id="selectContrastData">
+		<result column="f004_ths038" property="applyRedeemState" javaType="int" jdbcType="NUMERIC" />
+		<result column="avgNum" property="avgNum" javaType="double" jdbcType="NUMERIC" />
+		<result column="f003_ths036" property="managersId" jdbcType="VARCHAR" />
+		<result column="f004_ths036" property="managersName" jdbcType="VARCHAR" />
+		<result column="f005_ths036" property="stateWorkTime" javaType="Date" jdbcType="DATE" />
+		<result column="f004_ths037" property="birthday" javaType="Date" jdbcType="DATE" />
+		
+	</resultMap>
+</mapper>

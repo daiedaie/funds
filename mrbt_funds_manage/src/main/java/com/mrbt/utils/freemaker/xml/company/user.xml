@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="../xml_bean.xsd">
+	<path jsp="E:/project/mrbt/mrbt_oa/WebContent/WEB-INF/jsp/company/user" 
+	js="E:/project/mrbt/mrbt_oa/WebContent/resource/js/company/user"
+	vist-url="/rest/company/user" />
+	<title>员工登录账户管理</title>
+	<comboMaps>
+		<entry>
+			<string>state</string>
+			<list>
+				<TypeCombo option="0" text="正常"/>
+				<TypeCombo option="1" text="暂停"/>
+				<TypeCombo option="2" text="删除"/>
+			</list>
+		</entry>
+	</comboMaps>
+	<columns>
+		<column  id="true" name="id" label="id" ></column>
+		<column  name="loginName" type="string" search="true" label="登录名称"></column>
+		<column  name="loginPass" type="string" label="" grid="false" save="false" update="false" view="false"></column>
+		<column  name="loginStatus" format="combobox" type="combobox" label="状态" comboName="state" ></column>
+		<column  name="lastDt" type="date" format="date" label="最后登录时间" save="false" update="false"></column>
+		<column  name="lastIp" type="string" label="最后登录ip" save="false" update="false"></column>
+	</columns>
+</bean>

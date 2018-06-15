@@ -1,0 +1,57 @@
+﻿body {
+	background: #fafafa;
+	padding-bottom: 50px;
+}
+
+.banner {
+	min-width: 1000px;
+	background: #7ecc98;
+	margin-bottom: 10px;
+}
+
+.banner .bannerbox {
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.main {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+.addStyle {
+	color: red;
+}
+
+.window {
+	width: 1000px;
+	height:600px;
+	background-color: #d0def0;
+	position: absolute;
+	padding: 2px;
+	margin: 5px;
+	display: none;
+}
+
+.pdfcontent {
+	background-color: #FFF;
+	font-size: 14px;
+	overflow: auto;
+}
+
+.title {
+	height:20px;
+	width:100%;
+	padding: 2px;
+	color: #0CF;
+	font-size: 14px;
+}
+
+.title a {
+	float: right;
+}
+
+@media print{ 
+	body{display:none} 
+} 

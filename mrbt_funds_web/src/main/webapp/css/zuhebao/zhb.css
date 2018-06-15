@@ -1,0 +1,423 @@
+@charset "utf-8";body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,p,form,input,button{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}h2{font-size:14px}ul,ol li{list-style:none}body{font-size:12px;margin:0 auto;color:#6c6c6c;font-family:"微软雅黑",Helvetica;background:#e0f0e6;-webkit-text-size-adjust:none}fieldset,img{border:0}img{vertical-align:top}input,textarea{border:none 0}a{text-decoration:none;color:#666}html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-text-size-adjust:none}.clearfix:after{content:"";display:block;clear:both}.clearfix{zoom:1}
+/*wrap*/
+
+
+body{
+	background: #fafafa;
+}
+.banner{
+	min-width: 1000px;
+	background: #063449;
+	margin-bottom: 10px;
+}
+.banner .bannerbox{
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+ 
+.main{
+	width: 1000px;
+	margin: 0px auto;
+}
+.main .intro{
+	border: 1px solid #e6e6e6;
+	margin: 30px 0 20px 0;
+	padding: 15px;
+	background: #ffffff;
+	font-size: 14px;
+	color: #666666;
+	line-height: 25px;
+}
+
+.main .intro p{
+	font-size: 18px;
+	line-height:18px;
+	color: #25a8e0;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #e6e6e6;
+
+}
+.main .intro p span{
+	height:18px;
+	display:block;
+	float:left;
+	padding-left:8px;
+	border-left:3px solid #25a8e0;
+}
+
+.zhb .zhbox .zhbtype{
+	width: 200px;
+	height: 175px;
+	border: 1px solid #e6e6e6;
+	position: relative;
+	float: left;
+	background: url('../../images/zhbType.jpg') no-repeat;
+}
+.zhb{
+	background: #ffffff;
+	margin-bottom: 15px;
+}
+.zhb .zhbox .zhbtype .tab{
+	position: absolute;
+	bottom: 16px;
+	left: 1px;
+}
+
+.botten_active{
+	background-color: #25a8e0;
+}
+
+.zhb .zhbox .zhbtype .tab a{
+	display: block;
+	float: left;
+	width: 60px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	text-align: center;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+	border-radius: 12px;
+	-ms-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	margin: 0 2px; 
+}
+.zhb .zhbox .zhbtype .tab a:hover{
+	color: #ea560e;
+	background: rgba(255,160,183,0.8);
+}
+.zhb .zhbox .tablex .txleft{
+	float: left;
+	width: 661px;
+	border-right: 1px solid #e6e6e6;
+}
+.zhb .zhbox .tablex .txleft table{
+	width: 661px;
+	border-right:0px;
+	height: 180px;
+}
+.zhb .zhbox .tablex .txleft table tr{
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #999999;
+	border: 1px solid #e6e6e6;
+	border-right: 0px;
+}
+
+.zhb .zhbox .tablex .txleft table tr td{
+	width: 150px;
+	padding-right: 15px;
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	overflow:hidden; 
+}
+
+.zhb .zhbox .tablex .txleft table tr td.td_1 span{
+	width: 230px;
+	display: block; /*内联对象需加*/
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap; /* 不换行 */
+	overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容*/
+	text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+
+.zhb .zhbox .tablex .txleft table tr td a{
+	color: #ffffff;
+	font-size: 12px;
+	background: #25a8e0;
+	padding: 2px 5px;
+	margin-right: 5px;
+}
+.zhb .zhbox .tablex .txleft table tr td span{
+	color: #ea560e;
+	font-size: 18px;
+}
+.zhb .zhbox .tablex .txleft table tr td.td_1{
+	padding-left: 10px;
+}
+.zhb .zhbox .tablex .txleft table tr td.td_1 span{
+	font-size: 12px;
+	color: #999999;
+}
+
+
+.zhb .zhbox .tablex .txright{
+	float: left;
+	border: 1px solid #e6e6e6;
+	width: 135px;
+	border-left: 0px;
+	text-align: center;
+	padding-top: 38px;
+}
+.zhb .zhbox .tablex .txright span{
+	color: #ea560e;
+	font-size: 40px;
+	font-weight: bold;
+}
+.zhb .zhbox .tablex .txright p{
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 30px;
+}
+.zhb .zhbox .tablex .txright a{
+	display: block;
+	margin: 0px auto 5px;
+	width: 120px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 15px;
+	background: #25a8e0;
+}
+
+.zhb .zhbox .bingtu{
+	float: left;
+	border: 1px solid #e6e6e6;
+}
+.zhb .zhbox .bingtu .btleft{
+	width:660px;
+	float: left;
+	height: 175px;
+	border-right: 1px solid #e6e6e6;
+}
+.zhb .zhbox .bingtu .btleft .btl_1{
+	float: left;
+	width: 379px;
+	position: relative;
+	border-right:1px  dashed #e6e6e6;
+	margin-top: 20px;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .bt{
+	width: 140px;
+	height: 150px;
+	padding-left: 20px;
+	margin-top: -8px;
+	position: relative;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .bt .fg{
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius:50%;
+	-ms-border-radius:50%;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	background: #ffffff;
+	top: 56px;
+	left: 86px;
+	z-index: 9998;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .sm{
+	position: absolute;
+	width: 100px;
+	height: 15px;
+	line-height: 15px;
+	font-size: 12px;
+	color: #666666;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .sm a{
+	float: left;
+	display: block;
+	width: 30px;
+	height: 15px;
+	margin-right: 7px;
+	cursor: default;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_1{
+	left: 200px;
+	top: 76px;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_1 a{
+	 background: #24a249;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_2{
+	left: 200px;
+	top: 103px;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_2 a{
+	background: #f4b525;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_3{
+	left: 300px;
+	top: 76px;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_3 a{
+	 background: #ed1f24;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_4{
+	left: 300px;
+	top: 103px;
+}
+.zhb .zhbox .bingtu .btleft .btl_1 .color_4 a{
+	background: #ea560e;
+}
+
+.zhb .zhbox .zhbleft_0,.zhb .zhbox .zhbleft_1,.zhb .zhbox .zhbleft_2{
+	display: none;
+}
+.zhb .zhbox .zhbleft_0.active,.zhb .zhbox .zhbleft_1.active,.zhb .zhbox .zhbleft_2.active{
+	display: block;border-spacing: 
+}
+
+
+
+
+.zhb .zhbox .bingtu .btleft .btl_2{
+	float: left;
+	width: 203px;
+	height: 140px;
+	padding: 35px 30px 0 30px;
+	font-size: 14px;
+	color: #666666;
+	line-height: 27px;
+}
+.zhb .zhbox .bingtu .btleft .btl_2 em{
+	font-style: normal;
+	float: right;
+}
+.zhb .zhbox .bingtu .btleft .btl_2 span{
+	float: left;
+}
+
+
+.zhb .zhbox .bingtu  .btright{
+	float: left;
+	width: 135px;
+	border-left: 0px;
+	text-align: center;
+	padding-top: 38px;
+}
+.zhb .zhbox  .bingtu .btright span{
+	color: #ea560e;
+	font-size: 40px;
+	font-weight: bold;
+}
+.zhb .zhbox .bingtu  .btright p{
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 30px;
+}
+.zhb .zhbox .bingtu  .btright  a{
+	display: block;
+	margin: 0px auto 5px;
+	width: 120px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 15px;
+	background: #25a8e0;
+}
+
+.zhb .zhbox .zhexian{
+	float: left;
+	border: 1px solid #e6e6e6;
+}
+.zhb .zhbox .zhexian .zxleft{
+	float: left;
+	width: 660px;
+	height: 175px;
+	border-right: 1px solid #e6e6e6;
+}
+.zhb .zhbox .zhexian .zxleft .zxtop {
+	padding: 12px 20px 8px 0;
+	height: 13px;
+	line-height:13px;
+}
+.zhb .zhbox .zhexian .zxleft .zxtop .sm{
+	float: right;
+	font-size: 12px;
+	color: #666666;
+	margin: 0 0 0 15px;
+}
+.zhb .zhbox .zhexian .zxleft .zxtop .sm a{
+	display: block;
+	float: left;
+	width: 35px;
+	height: 13px;
+	margin-right: 8px;
+}
+.zhb .zhbox .zhexian .zxleft .zxtop .sm_1 a{
+	background: #ff0000;
+}
+.zhb .zhbox .zhexian .zxleft .zxtop .sm_2 a{
+	background: #31ace2;
+}
+
+.zhb .zhbox .zhexian .tongji{
+	width: 630px;
+	height: 135px;
+	overflow: hidden;
+	margin-left: 20px;
+	
+}
+
+
+
+
+.zhb .zhbox .zhexian .zxright{
+	float: left;
+	width: 135px;
+	border-left: 0px;
+	text-align: center;
+	padding-top: 38px;
+}
+.zhb .zhbox .zhexian .zxright span{
+	color: #ea560e; 
+	font-size: 40px;
+	font-weight: bold;
+}
+.zhb .zhbox .zhexian .zxright p{
+	font-size: 12px;
+	color: #999999;
+	margin-bottom: 30px;
+}
+.zhb .zhbox .zhexian .zxright  a{
+	display: block;
+	margin: 0px auto 5px;
+	width: 120px;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 15px;
+	background: #25a8e0;
+}
+
+.zhb .pzdp{
+	padding:10px 5px;
+	font-size: 12px;
+	border: 1px solid #e6e6e6;
+	border-top: 0;
+}
+.zhb .pzdp span{
+	float: left;
+	color: #666666;
+	line-height: 20px;
+}
+.zhb .pzdp p{
+	width: 920px;
+	float: left;
+	color: #999999;
+	line-height: 20px;
+}
+.mianze{
+	padding: 25px 10px;
+	font-size: 12px;
+}
+.mianze span{
+	float: left;
+	color: #31ace2;
+	line-height: 25px;
+}
+.mianze p{
+	width: 760px;
+	float: left;
+	color: #999999;
+	line-height: 25px;
+}

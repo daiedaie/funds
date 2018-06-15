@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<!-- 引入数据库配置文件 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+
+	<!-- 数据库配置 -->
+	<bean id="dataSource_1" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${dataSource_1.diverClassName}" />
+		<property name="url" value="${dataSource_1.url}" />
+		<property name="username" value="${dataSource_1.username}" />
+		<property name="password" value="${dataSource_1.password}" />
+		<property name="initialSize" value="${dataSource_1.initialSize}" />
+		<property name="maxActive" value="${dataSource_1.maxActive}" />
+		<property name="maxIdle" value="${dataSource_1.maxIdle}" />
+		<property name="minIdle" value="${dataSource_1.minIdle}" />
+		<property name="maxWait" value="${dataSource_1.maxWait}" />
+		<property name="testWhileIdle" value="${dataSource_1.testWhileIdle}" />
+		<property name="timeBetweenEvictionRunsMillis"
+			value="${dataSource_1.timeBetweenEvictionRunsMillis}" />
+		<property name="numTestsPerEvictionRun" value="${dataSource_1.numTestsPerEvictionRun}" />
+		<property name="minEvictableIdleTimeMillis" value="${dataSource_1.minEvictableIdleTimeMillis}" />
+		<property name="poolPreparedStatements" value="${dataSource_1.poolPreparedStatements}" />
+		<property name="maxOpenPreparedStatements" value="${dataSource_1.maxOpenPreparedStatements}" />
+		<property name="defaultAutoCommit" value="${dataSource_1.defaultAutoCommit}" />
+		<property name="removeAbandoned" value="${dataSource_1.removeAbandoned}" />
+		<property name="removeAbandonedTimeout" value="${dataSource_1.removeAbandonedTimeout}" />
+		<property name="logAbandoned" value="${dataSource_1.logAbandoned}" />
+	</bean>
+
+	<!-- 扫描dao层的接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.mrbt.**.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+	</bean>
+
+	<!-- 扫描dao层的xml文件 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_1" />
+		<property name="mapperLocations" value="classpath:com/mrbt/**/mapping/*.xml"></property>
+	</bean>
+
+	<!-- 事物管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource_1" />
+	</bean>
+
+</beans>

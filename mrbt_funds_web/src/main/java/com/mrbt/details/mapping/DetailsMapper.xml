@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.details.dao.DetailsMapper">
+
+	<!-- 获取基金详情基本数据 -->
+	<resultMap id="BaseResultMap" type="com.mrbt.details.model.Details">
+		<result column="f007_ths035" property="type" jdbcType="VARCHAR" />
+		<result column="name" property="type_name" jdbcType="VARCHAR" />
+		<result column="f003_ths001" property="shortName" jdbcType="VARCHAR" />
+		<result column="f004_ths038" property="state" jdbcType="VARCHAR" />
+		<result column="f002_ths001" property="code" jdbcType="VARCHAR" />
+		<result column="f004_ths054" property="scale" jdbcType="VARCHAR" />
+		<result column="f005_ths035" property="upDate" jdbcType="VARCHAR" />
+		<result column="f003_ths043" property="netValue" javaType="double" jdbcType="NUMERIC" />
+		<result column="f002_ths043" property="navTime" jdbcType="VARCHAR" />
+		<result column="f004_ths043" property="totalTalue" jdbcType="VARCHAR" />
+		<result column="f016_ths039z" property="ratez" javaType="double" jdbcType="NUMERIC" />
+		<result column="f016_ths039" property="rate" javaType="double" jdbcType="NUMERIC" />
+		<result column="risk_level" property="risk" jdbcType="VARCHAR" />
+		<result column="f005_ths001" property="fullName" jdbcType="VARCHAR" />
+		<result column="f026_ths035" property="fundManagerId" jdbcType="VARCHAR" />
+		<result column="f003_ths002" property="fundManager" jdbcType="VARCHAR" />
+		<result column="f028_ths035" property="custodianId" jdbcType="VARCHAR" />
+		<result column="f029_ths035" property="custodian" jdbcType="VARCHAR" />
+		<result column="f007_ths041" property="issueDate" jdbcType="VARCHAR" />
+		<result column="f010_ths035" property="perComBen" jdbcType="VARCHAR" />
+		<result column="f001_ths035" property="f001_ths035" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="getDetailsFromId" resultMap="BaseResultMap">
+		select 
+			f001_ths035,
+     		f007_ths035,
+     		fbt.name,
+			f003_ths001, 
+      		f004_ths038, 
+      		f002_ths001, 
+      		f004_ths054,
+     		f005_ths035,
+      		f003_ths043,
+      		f002_ths043,
+      		f004_ths043,
+      		f016_ths039 * 0.4 as f016_ths039z,
+     		f016_ths039,
+      		risk_level,
+      		f005_ths001,
+      		f026_ths035,
+      		f003_ths002,
+      		f028_ths035,
+      		f029_ths035,
+      		f007_ths041,
+      		f010_ths035
+		from
+			ths001 t1, 
+      		ths035 t35,
+      		(select * from (select ths038.* from ths038, ths001 where ths038.f001_ths038 = ths001.f001_ths001 and f002_ths001 = #{0} and ths038.f003_ths038 = 1 order by ctime_ths038 desc) where rownum = 1) t38,
+      		(select * from (select ths054.* from ths054, ths001 where ths054.f001_ths054 = ths001.f001_ths001 and f002_ths001 = #{0} order by ctime_ths054 desc) where rownum = 1) t54,
+     		(select * from (select ths043.* from ths043, ths001 where ths043.f001_ths043 = ths001.f001_ths001 and f002_ths001 = #{0} order by ctime_ths043 desc) where rownum = 1) t43,
+      		(select * from (select ths039.* from ths039, ths001 where ths039.f001_ths039 = ths001.f001_ths001 and f002_ths001 = #{0} and ths039.f008_ths039 = 0 order by ctime_ths039 desc)) where rownum = 1) t39,
+      		(select funds_risk.* from ths001, funds_risk where ths001.f002_ths001 = funds_risk.funds_code and f002_ths001 = #{0}) fr,
+      		ths002 t2,
+      		ths041 t41,
+          	funds_base_type fbt
+		where
+			t1.f002_ths001 = #{0}
+			and t1.f001_ths001 = t35.f001_ths035
+		    and t1.f001_ths001 = t38.f001_ths038
+		    and t1.f001_ths001 = t54.f001_ths054
+		    and t1.f001_ths001 = t43.f001_ths043
+		    and t1.f001_ths001 = t39.f001_ths039
+		    and t1.f002_ths001 = fr.funds_code
+		    and t35.f026_ths035 = t2.f001_ths002
+		    and t1.f001_ths001 = t41.f001_ths041
+		    and t35.f007_ths035 = fbt.id
+	</select>
+	
+	<!-- 获取基金经理姓名 -->
+	<resultMap type="com.mrbt.details.model.ManagersName" id="fundsManagersMap" >
+		<result column="f003_ths036" property="id" jdbcType="VARCHAR" />
+		<result column="f004_ths036" property="name" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="findFundManagersName" resultMap="fundsManagersMap">
+		select f003_ths036, f004_ths036 from ths036 where f001_ths036 = #{0}
+	</select>
+	
+	<!-- 查询行业配置的年份分布 -->
+	<select id="getIndustAllocaYear" resultType="String">
+		select distinct to_char(f004_ths047, 'yyyy') as year from ths047 t47, ths001 t1 where t47.f001_ths047 = t1.f001_ths001 and t1.f002_ths001 = #{0} order by year desc
+	</select>
+	
+	<!-- 获取基金行业配置，柱状图、列表-->
+	<resultMap type="com.mrbt.details.model.IndustrAlloca" id="industrAllocaMap">
+		<result column="f002_ths001" property="fundCode" jdbcType="VARCHAR" />
+		<result column="f003_ths001" property="shortName" jdbcType="VARCHAR" />
+		<result column="f001_ths047" property="ifindCode" jdbcType="VARCHAR" />
+		<result column="f004_ths047" property="endDate" jdbcType="VARCHAR" />
+		<result column="f006_ths047" property="industryId" jdbcType="VARCHAR"/>
+		<result column="f007_ths047" property="industryName" jdbcType="VARCHAR" />
+		<result column="f009_ths047" property="proportion" javaType="double" jdbcType="NUMERIC" />
+		<result column="market_value" property="marketValue" javaType="double" jdbcType="NUMERIC" />
+	</resultMap>
+	<select id="getIndustrAlloca" resultMap="industrAllocaMap">
+		select 
+			t1.f002_ths001, 
+			t1.f003_ths001, 
+			t47.f001_ths047, 
+			t47.f004_ths047, 
+			t47.f006_ths047, 
+			t47.f007_ths047, 
+			t47.f009_ths047, 
+			t47.f008_ths047 / 10000 as market_value
+		from 
+			ths047 t47,
+			ths001 t1
+		where 
+			t47.f004_ths047 &gt;= to_date(#{0}, 'yyyy-mm-dd') 
+			and t47.f004_ths047 &lt;= to_date(#{1}, 'yyyy-mm-dd')
+			and t1.f002_ths001 = #{2}
+			and t47.f001_ths047 = t1.f001_ths001
+		order by 
+			t47.f009_ths047 desc	
+	</select>
+	
+	<!-- 查询基金净值、累计净值 -->
+	<resultMap type="com.mrbt.details.model.NetValue" id="netValueList">
+		<result column="f002_ths043" property="netDate" javaType="Date" jdbcType="DATE"/>
+		<result column="f003_ths043" property="netValue" javaType="double" jdbcType="NUMERIC"/>
+		<result column="f004_ths043" property="totalTalue" javaType="double" jdbcType="NUMERIC"/>
+	</resultMap>
+	<select id="getNetValueList" parameterType="com.mrbt.details.model.NetValue" resultMap="netValueList">
+		SELECT 
+		  	f002_ths043,
+		  	f003_ths043,
+		  	f004_ths043
+		FROM ths043 t43,
+		  	ths001 t1
+		<where>
+			t43.f001_ths043 = t1.f001_ths001 AND t1.f002_ths001 = '${fundCode}'
+			<if test="endDate != null and endDate != ''">
+				and t43.f002_ths043 &lt;= to_date('${endDate}', 'yyyy-mm-dd')
+			</if>
+			<if test="stateDate != null and endDate != ''">
+				and t43.f002_ths043 &gt;= to_date('${stateDate}', 'yyyy-mm-dd')
+			</if>
+		</where>
+		ORDER BY t43.f002_ths043
+	</select>
+	
+	<!-- 查询基金经理基本信息 -->
+	<resultMap type="com.mrbt.details.model.ManagersName" id="managerBaseInfo">
+		<result column="f003_ths036" property="id" jdbcType="VARCHAR" />
+		<result column="f004_ths036" property="name" jdbcType="VARCHAR" />
+		<result column="f003_ths037" property="sex" jdbcType="VARCHAR" />
+		<result column="f006_ths037" property="education" jdbcType="VARCHAR"/>
+		<result column="f009_ths037" property="desc" jdbcType="VARCHAR"/>
+		<result column="servingTime" property="servingTime" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getManagerBaseInfo" resultMap="managerBaseInfo">
+		SELECT 
+			t36.f003_ths036,
+			t36.f004_ths036,
+			t37.f003_ths037,
+			t37.f006_ths037,
+			t37.f009_ths037,
+			to_char(t36.f005_ths036,'yyyy-mm-dd') as servingTime
+		FROM 
+			ths036 t36,
+			ths001 t1,
+			ths037 t37
+		WHERE 
+			t36.f001_ths036 = t1.f001_ths001
+			AND t36.f003_ths036 = t37.f001_ths037
+			AND t1.f002_ths001 = '001227'
+	</select>
+	
+	<!-- 查询基金经理经历 -->
+	<resultMap type="com.mrbt.details.model.ManagersName" id="managerExperience">
+		<result column="f002_ths001" property="fundsCode" jdbcType="VARCHAR" />
+		<result column="f003_ths001" property="shortName" jdbcType="VARCHAR" />
+		<result column="f007_ths035" property="fundsType" jdbcType="VARCHAR" />
+		<result column="f005_ths036" property="servingTime" jdbcType="VARCHAR"/>
+		<result column="f006_ths036" property="outgoingDate" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getManagerExperience" resultMap="managerExperience">
+		select 
+			t1.f002_ths001, 
+			t1.f003_ths001,
+			t35.f007_ths035, 
+			to_char(t36.f005_ths036, 'yyyy-mm-dd') as servingTime,
+			to_char(t36.f006_ths036, 'yyyy-mm-dd') as outgoingDate
+		from 
+			ths036 t36, ths035 t35, ths001 t1
+		where 
+			t36.f001_ths036 = t35.f001_ths035
+			and t35.f001_ths035 = t1.f001_ths001
+			and t36.f003_ths036 = 'H000440304'
+	</select>
+	
+	<!-- 查询最新的净值 -->
+	<select id="getNewNetValue" resultType="Double">
+		select f003_ths043 from 
+			(select 
+				t43.f003_ths043 
+			from 
+				ths043 t43, ths001 t1 
+			where 
+				t43.f001_ths043 = t1.f001_ths001 and t1.f002_ths001 = #{0} 
+			order by t43.f002_ths043 desc) t where rownum = 1
+	</select>
+	
+	<!-- 查询指定日期的净值 -->
+	<select id="getOldNetValue" resultType="Double">
+		select 
+			t43.f003_ths043 
+		from 
+			ths043 t43, ths001 t1
+		where 
+			t43.f001_ths043 = t1.f001_ths001 
+			and t1.f002_ths001 = #{0} 
+			and to_char(t43.f002_ths043, 'yyyy-mm-dd') = #{1}
+	</select>
+	
+	<!-- 报告期规模变动 -->
+	<resultMap type="com.mrbt.details.model.ReportingPeriod" id="reportIngPeriod">
+		<result column="f001_ths001" property="thsKey" jdbcType="VARCHAR" />
+		<result column="f002_ths001" property="fundCode" jdbcType="VARCHAR" />
+		<result column="reportDate" property="reportDate" jdbcType="VARCHAR" />
+		<result column="purchase" property="purchase" jdbcType="VARCHAR" />
+		<result column="redeem" property="redeem" jdbcType="VARCHAR"/>
+		<result column="thefinal" property="thefinal" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<select id="getReportingPeriod" resultMap="reportIngPeriod">
+		select 
+			f001_ths001,
+			f002_ths001, 
+			to_char(f003_ths054, 'yyyy-mm-dd') as reportDate , 
+			f004_ths054 / 100000000 as purchase , 
+			f006_ths054 / 100000000 as redeem , 
+			f007_ths054 / 100000000 as thefinal
+		from (
+			SELECT
+				f001_ths001,
+				f002_ths001,
+				f003_ths054,
+				f004_ths054,
+				f006_ths054,
+				f007_ths054
+			FROM 
+				ths054 t54, ths001 t1
+			WHERE
+				t54.f001_ths054 = t1.f001_ths001
+				and f002_ths001 = #{0}
+			ORDER BY 
+				f003_ths054 DESC) t
+		where rownum &lt; 5
+	</select>
+	
+	<!-- 查询指定基金代码、指定日期之前的单位净值 -->
+	<select id="netValueFromDataCode" resultType="double">
+		SELECT 
+			f003_ths043
+		FROM
+		  (SELECT 
+		  	f003_ths043
+		  FROM 
+		  	ths043
+		  WHERE 
+		  	f001_ths043 = #{0}
+		  	AND f002_ths043  &lt;= to_date(#{1}, 'yyyy-mm-dd')
+		  ORDER BY 
+		  	f002_ths043 DESC
+		  )
+		WHERE rownum = 1
+	</select>
+	
+	<!-- 查询申购费率 -->
+	<resultMap type="com.mrbt.details.model.RateInfo" id="rateInfo">
+		<result column="f008_ths039" property="minPrice" javaType="int" jdbcType="NUMERIC"  />
+		<result column="f009_ths039" property="maxPrice" javaType="int" jdbcType="NUMERIC"  />
+		<result column="f016_ths039" property="rate" javaType="double" jdbcType="NUMERIC"  />
+	</resultMap>
+	
+	<select id="getRateInfo" resultMap="rateInfo">
+		SELECT 
+			f008_ths039,
+		  	f009_ths039,
+		  	f016_ths039
+		FROM 
+			ths039 t39, 
+		  	(SELECT 
+		  		MAX(f002_ths039) as max_time,
+		    	f007_ths039
+		  	FROM
+		  		ths039 t39, ths001 t1
+		  	WHERE 
+		  		f002_ths001 = #{0}
+		    	AND f008_ths039  IS NOT NULL
+		    	and t39.f001_ths039 = t1.f001_ths001
+		  	GROUP BY 
+		  		f007_ths039) max_data, 
+		  	ths001 t1
+		WHERE 
+			t1.f002_ths001 = #{0}
+			and t1.f001_ths001 = t39.f001_ths039
+			and f008_ths039 is not null
+			and t39.f002_ths039 = max_data.max_time
+			and t39.f007_ths039 = max_data.f007_ths039
+		order by 
+			t39.f008_ths039															
+	</select>
+	
+	<!-- 查询赎回费率 -->
+	<resultMap type="com.mrbt.details.model.RateInfo" id="rateInfo2">
+		<result column="f012_ths039" property="minDay" javaType="double" jdbcType="NUMERIC"  />
+		<result column="f013_ths039" property="maxDay" javaType="double" jdbcType="NUMERIC"  />
+		<result column="f016_ths039" property="rate" javaType="double" jdbcType="NUMERIC"  />
+	</resultMap>
+	
+	<select id="getRateInfo2" resultMap="rateInfo2">
+		SELECT 
+		  	t39.f012_ths039,
+		  	t39.f013_ths039,
+		  	f016_ths039
+		FROM
+			ths039 t39, 
+			(SELECT MAX(f002_ths039) as max_time,
+		    	f007_ths039
+		  	FROM 
+		  		ths039 t39, ths001 t1
+		  	WHERE
+		  		f002_ths001 = #{0}
+		    	AND f012_ths039  IS NOT NULL
+		    	and t39.f001_ths039 = t1.f001_ths001
+		  	GROUP BY f007_ths039) max_data, 
+		  		ths001 t1
+		WHERE 
+			t1.f002_ths001 = #{0}
+			and t1.f001_ths001 = t39.f001_ths039
+			and f012_ths039 is not null
+			and t39.f002_ths039 = max_data.max_time
+			and t39.f007_ths039 = max_data.f007_ths039
+			order by t39.f008_ths039																					
+	</select>
+	
+	<!-- 查询运作费用 -->
+	<resultMap type="com.mrbt.details.model.OperatingExpenses" id="operatingExpenses">
+		<result column="f022_ths035" property="managed" javaType="double" jdbcType="NUMERIC"  />
+		<result column="f023_ths035" property="management" javaType="double" jdbcType="NUMERIC"  />
+	</resultMap>
+	
+	<select id="getOperatingExpenses" resultMap="operatingExpenses">
+		SELECT f022_ths035, f023_ths035 FROM ths035 t35, ths001 t1 WHERE t35.f001_ths035 = t1.f001_ths001 and f002_ths001 = #{0}
+	</select>
+	
+</mapper>

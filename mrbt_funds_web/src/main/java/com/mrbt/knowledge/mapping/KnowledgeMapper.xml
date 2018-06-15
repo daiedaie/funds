@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mrbt.knowledge.dao.KnowledgeMapper">
+	<resultMap id="ResultKnowledgeList" type="com.mrbt.knowledge.model.KnowledgeInfo">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+		<result column="text" property="text" jdbcType="VARCHAR" />
+	</resultMap>
+		
+	<select id="getKnowledgeList" resultMap="ResultKnowledgeList">
+		select 
+			sfk.title, sfk.create_time, sfk.author, sfk.text
+		from 
+			(select ROWNUM AS rowno, fk.id, fk.title, fk.create_time, fk.author, fk.text from funds_knowledge fk order by id) sfk 
+		where 
+			sfk.rowno &gt;= #{0} and sfk.rowno &lt;= #{1}
+	</select>
+	
+	<select id="getKnowledgeCount" resultType="java.lang.Integer">
+		select count(id) as countnum from funds_knowledge
+	</select>
+</mapper>

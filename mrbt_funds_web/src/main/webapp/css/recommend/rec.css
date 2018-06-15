@@ -1,0 +1,354 @@
+﻿body{
+	background: #fafafa;
+}
+.banner{
+	min-width: 1000px;
+	background: #7ecc98;
+	margin-bottom: 10px;
+}
+.banner .bannerbox{
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.main{
+	width: 1000px;
+	margin: 0px auto;
+}
+.main .intro{
+	border: 1px solid #e6e6e6;
+	margin: 30px 0 20px 0;
+	padding: 15px;
+	background: #ffffff;
+}
+.main .intro{
+	font-size: 14px;
+	color: #666666;
+}
+.main .intro p{
+	font-size: 18px;
+	line-height:18px;
+	color: #25a8e0;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px dashed #e6e6e6;
+
+}
+.main .intro p span{
+	height:18px;
+	display:block;
+	float:left;
+	padding-left:8px;
+	border-left:3px solid #25a8e0;
+}
+.paixu {
+	height: 38px;
+	border: 1px solid #e6e6e6;
+	background: #ffffff;
+	margin-bottom: 10px;
+}
+
+.paixu ul li{
+	float: left;
+	height: 38px;
+	width: 80px;
+	padding-left: 10px;
+	display: block;
+	line-height: 38px;
+	margin-right: 10px;
+	font-size: 14px;
+}
+
+.castActive{
+	color: red;
+}
+
+.paixu ul li a:hover,.paixu a.hover{
+	color: #ff560e;
+}
+.paixu ul li a.pai{
+	color: #333333;
+	background: none;
+}
+.paixu ul li a.pai:hover{
+	color: #333333;
+}
+.paixu ul li a.moren{
+	background:none;
+}
+
+.funds-list{
+	padding:0px;
+	background: #ffffff;
+	border: 1px solid #e6e6e6;
+	margin-bottom: 5px;
+}
+
+.funds-info{
+	height: 80px;
+}
+
+.funds-info-left{
+	margin-left:5px;
+	float: left;
+}
+
+.funds-info-left-base{
+	width: 875px;
+	height: 39px; 
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.funds-info-left-base span{
+	height: 39px;
+	line-height: 39px;
+	float: left;
+}
+
+.funds-type{
+	padding:2px 5px;
+	color:#ffffff;
+	background-color: #25a8e0;
+	margin-left: 10px;
+}
+
+.funds-name {
+	font-size: 18px;
+	color: #333333;
+	font-style: normal;
+	padding-left: 15px;
+	min-width: 200px;
+	display: block; /*内联对象需加*/
+	word-break: keep-all; /* 不换行 */
+	white-space: nowrap; /* 不换行 */
+	overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容*/
+	text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+}
+
+.funds-code{
+	font-size: 14px;
+	color: #666666;
+	font-style: normal;
+	padding-left: 15px;
+}
+
+.num{
+	width:40px;
+}
+
+.num1{
+	width:40px;
+	background: url('../../images/crown_1.png') 6px 6px no-repeat;
+}
+
+.num2{
+	width:40px;
+	background: url('../../images/crown_2.png') 6px 6px no-repeat;
+}
+
+.num3{
+	width:40px;
+	background: url('../../images/crown_3.png') 6px 6px no-repeat;
+}
+
+.funds-info-letf-number div{
+	text-align:right;
+	min-width:150px;
+	font-size: 14px;
+	height:40px;
+	float: left;
+	line-height: 39px;
+	margin-left: 5px;
+	color: #999999;
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	overflow:hidden; 
+}
+
+.funds-info-letf-number div span{
+	font-size: 25px;
+	height:40px;
+	margin-right: 5px;
+}
+
+.funds-info-right{
+	width:118px;
+	float: right;
+}
+
+.funds-info-right-top{
+	font-size:16px;
+	cursor:pointer;
+	display: block;
+	height:55px;
+	line-height: 55px;
+	text-align: center;
+	color: #ffffff;
+	background: #ea560e;
+	font-size: 14px;
+}
+
+.funds-info-right-bottom{
+	cursor:pointer;
+	color:#666666;
+	height:24px;
+	background-color:#f2f2f2;
+	border:1px solid #e6e6e6;
+}
+
+.funds-info-right-bottom div{
+	font-size:14px;
+	margin-left:5px;
+	line-height: 25px;
+	text-align: center;
+	height: 25px;
+	background: url('../../images/zan.png') 2px 5px no-repeat;	
+}
+
+.recom-text{
+	margin:10;
+	font-size:14px;
+	background-color:#f2f2f2;
+	display: none; 
+}
+
+.recom-text span{
+	color: #25a8e0;
+}
+
+.colorg{
+	color: #ea560e;
+}
+.colorblue{
+	color: #25a8e0;
+}
+
+.colorgray{
+	color:#cccccc;
+}
+
+.page{
+	margin: 20px auto;
+
+}
+.page p{
+	font-size: 12px;
+	color: #999999;
+	float: left;
+	padding: 7px 0 0 10px;
+}
+.page ul{
+	float: right;
+	margin-top: 20px;
+}
+.page ul li{
+	display: block;
+	float: left;
+}
+.page ul li a{
+	display: block;
+	float: left;
+	width: 28px;
+	height: 28px;
+	border: 1px solid #e6e6e6;
+	line-height: 28px;
+	text-align: center;
+	font-size: 20px;
+	color: #999999;
+	background: #ffffff;
+	margin: 0 5px;
+}
+.page ul li a:hover{
+	color: #ffffff;
+	background: #54b5e4;
+}
+.page ul span{
+	display: block;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	float: left;
+}
+.page ul li a.prev{
+	background: #ffffff url('../../images/prev.png') 8px 5px no-repeat;
+	margin: 0;
+
+}
+
+.page ul li a.next{
+	background: #ffffff url('../../images/next.png') 10px 5px no-repeat;
+	margin: 0;
+}
+.page ul li a.prev:hover,.page ul li a.next:hover{
+	background-color: #54b5e4;
+
+}
+.page ul li.tiaoz{
+	display: block;
+	width: 180px;
+	float: left;
+}
+.page ul li.tiaoz input{
+	float: left;
+	width: 70px;
+	height: 28px;
+	border: 1px solid #e6e6e6;
+	margin-top: 1px;
+}
+.page ul li.tiaoz a{
+	float: left;
+	width: 60px;
+	height: 30px;
+	font-size: 14px;
+	color: #ffffff;
+	background: #54b5e4;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 10px;
+}
+.diaochu{
+	border-top: 1px solid #e6e6e6;
+	padding: 10px 0 10px 0;
+}
+.diaochu .title,.diaoru .title{
+	font-size: 14px;
+	color: #31ade2;
+	margin: 0 0 10px 0;
+}
+.diaochu table,.diaoru table{
+	width: 100%;
+	table-layout: fixed;
+	border: 1px solid #e6e6e6;
+	text-align: center;
+}
+.diaochu table thead,.diaoru table thead{
+	background: #cce7f2;
+	height: 37px;
+	line-height: 37px;
+	font-size: 12px;
+	color: #626468;
+}
+.diaochu table thead td.thd_1,.diaoru table thead td.thd_1{
+	width: 120px;
+}
+.diaochu table thead td.thd_2,.diaoru table thead td.thd_2{
+	width: 440px;
+}
+.diaochu table tbody tr,.diaoru table tbody tr{
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #999999;
+}
+.diaochu table tbody tr:nth-child(even),.diaoru table tbody tr:nth-child(even){
+	background: #f5fafc;
+}
+.diaochu table tbody tr:nth-child(odd),.diaoru table tbody tr:nth-child(odd){
+	background: #ffffff;
+}
+
+.funds-apply{
+	color: #ffffff;
+}

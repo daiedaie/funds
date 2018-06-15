@@ -1,0 +1,1201 @@
+body {
+	background: #fafafa;
+}
+
+.banner {
+	min-width: 1000px;
+	background: #7ecc98;
+	margin-bottom: 10px;
+}
+
+.banner .bannerbox {
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.main {
+	width: 1000px;
+	margin: 10px auto;
+	font-family: "微软雅黑";
+}
+
+.main .xqTop {
+	width: 998px;
+	border: 1px solid #e6e6e6;
+	background: #ffffff;
+}
+
+.main .xqTop .xqTleft {
+	width: 580px;
+	float: left;
+	height: 250px;
+	margin: 10px 10px;
+	border-right: 1px dotted #e6e6e6;
+}
+
+.main .xqTop .xqTleft .xqtoptab a {
+	display: block;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	font-size: 14px;
+	color: #666666;
+	width: 60px;
+	float: left;
+	padding: 0 15px;
+	border-bottom: 2px solid #ffffff;
+}
+
+.main .xqTop .xqTleft .xqtoptab a.active, .main .xqTop .xqTleft .xqtoptab a:hover
+	{
+	border-bottom: 2px solid #3399cc;
+}
+
+.main .xqTop .xqTleft .shaix {
+	padding-left: 140px;
+	padding-top: 10px;
+	border-top: 1px solid #e6e6e6;
+	margin-right: 10px;
+}
+
+.main .xqTop .xqTleft .shaix a {
+	display: block;
+	float: left;
+	width: 33px;
+	height: 16px;
+	border: 1px solid #e6e6e6;
+	text-align: center;
+	line-height: 16px;
+	font-size: 12px;
+	color: #666666;
+	margin-right: 5px;
+}
+
+.main .xqTop .xqTleft .shaix a.active, .main .xqTop .xqTleft .shaix a:hover
+	{
+	border: 0;
+	width: 35px;
+	height: 18px;
+	line-height: 18px;
+	color: #ffffff;
+	background: #3399cc;
+}
+
+.main .xqTop .xqTleft .shaix span {
+	float: right;
+	line-height: 20px;
+	font-size: 18px;
+	color: #3399cc;
+}
+
+.main .xqTop .xqTleft .shaix span em {
+	font-style: normal;
+	font-size: 12px;
+	color: #666666;
+	margin-right: 5px;
+}
+
+.main .xqTop .xqTleft .jingzhi_1 {
+	width: 568px;
+	height: 238px;
+}
+
+.main .xqTop .xqTright {
+	float: left;
+}
+
+.main .xqTop .xqTright .xqtr_1 {
+	height: 45px;
+	line-height: 45px;
+	width: 390px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.main .xqTop .xqTright .xqtr_1 span.sp1 {
+	float: left;
+	font-size: 18px;
+	color: #333333;
+}
+
+.main .xqTop .xqTright .xqtr_1 span.sp1 em {
+	font-style: normal;
+	color: #ffffff;
+	font-size: 12px;
+	background: #25a8e0;
+	padding: 3px;
+	margin-right: 5px;
+}
+
+.main .xqTop .xqTright .xqtr_1 span.sp2 {
+	float: right;
+	font-size: 12px;
+	color: #666666;
+}
+
+.main .xqTop .xqTright .xqtr_1 span.sp2 em {
+	font-style: normal;
+	color: #25a8e0;
+}
+
+.main .xqTop .xqTright .xqtr_2 {
+	clear: both;
+	height: 45px;
+	width: 390px;
+}
+
+.main .xqTop .xqTright .xqtr_2 span {
+	font-size: 12px;
+	color: #666666;
+	display: block;
+	width: 130px;
+	float: left;
+	height: 45px;
+	line-height: 45px;
+	text-align: left;
+}
+
+.main .xqTop .xqTright .xqtr_2 span em {
+	font-style: normal;
+	color: #25a8e0;
+}
+
+.main .xqTop .xqTright .xqtr_3 {
+	background: #e9f6fc;
+	padding: 25px 0;
+}
+
+.main .xqTop .xqTright .xqtr_3 div {
+	float: left;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 {
+	width: 150px;
+	height: 50px;
+	padding: 0 5px;
+	border-right: 1px dotted #cccccc;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 span {
+	color: #25a8e0;
+	font-size: 24px;
+	padding-right: 16px;
+	font-weight: bold;
+	overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+	text-align: right;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 span img{
+	vertical-align: middle;
+}
+
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 span em {
+	font-style: normal;
+	font-size: 16px;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 p {
+	font-size: 12px;
+	color: #666666;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_1 p em {
+	color: #999999;
+	margin-left: 10px;
+	font-style: normal;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_2 {
+	width: 135px;
+	height: 50px;
+	padding: 0 5px;
+	border-right: 1px dotted #cccccc;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_2 span {
+	font-size: 24px;
+	color: #ea5604;
+	font-weight: bold;
+	overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_2 p {
+	font-size: 12px;
+	color: #666666;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_2 p em {
+	font-style: normal;
+	color: #999999;
+	margin-left: 10px;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_3 {
+	height: 50px;
+	padding: 0 5px;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_3 span {
+	font-size: 24px;
+	color: #999999;
+}
+
+.main .xqTop .xqTright .xqtr_3 div.x3_3 span em {
+	font-size: 16px;
+	font-style: normal;
+	text-decoration: line-through;
+}
+
+.main .xqTop .xqTright p.fxlevel {
+	font-size: 12px;
+	color: #cccccc;
+	border-bottom: 1px dotted #cccccc;
+	line-height: 30px;
+}
+.main .xqTop .xqTright p.fxlevel_2 {
+	font-size: 12px;
+	color: #cccccc;
+	line-height: 30px;
+}
+.main .xqTop .xqTright .opation {
+	padding: 8px 0 0 0;
+}
+
+.main .xqTop .xqTright .opation input {
+	float: left;
+	width: 190px;
+	height: 38px;
+	line-height: 38px;
+	background: #ffffff;
+	outline: none;
+	border: 1px solid #cccccc;
+	font-size: 18px;
+	padding: 0 10px;
+	margin-right: 10px;
+	font-weight: normal;
+}
+
+.main .xqTop .xqTright .opation a {
+	display: block;
+	float: left;
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.main .xqTop .xqTright .opation a.gm {
+	background: #ff4400;
+}
+
+.main .xqTop .xqTright .opation a.dt {
+	background: #ff9933;
+	margin-left: 10px;
+}
+
+.main .xqTop .xqTright p.tip {
+	font-size: 12px;
+	color: #cccccc;
+}
+
+.main .xiangqing {
+	border: 1px solid #e6e6e6;
+	background: #ffffff;
+	margin-top: 10px;
+	height: 128px;
+}
+
+.main .xiangqing .xqphotoleft {
+	float: left;
+	width: 199px;
+	height: 128px;
+	border-right: 1px solid #e6e6e6;
+	overflow: hidden;
+}
+
+.main .xiangqing .xqphotoleft img {
+	width: 100%;
+	height: 100%;
+	border: none;
+}
+
+.main .xiangqing .xqphotoright {
+	width: 770px;
+	float: left;
+	padding: 10px 10px;
+}
+
+.main .xiangqing .xqphotoright .xhr_1 ul {
+	height:25px;
+	font-size: 14px;
+	color: #666666;
+	border-bottom: 1px dotted #cccccc;
+}
+
+.main .xiangqing .xqphotoright .xhr_1 ul li{
+	float:left;
+	margin-right:30px;
+	font-size: 14px;
+	color: #666666;
+}
+
+.main .xiangqing .xqphotoright .xhr_1 ul li span {
+	display: -moz-inline-box;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.main .xiangqing .xqphotoright .xhr_2 {
+	width: 770px;
+}
+
+.main .xiangqing .xqphotoright .xhr_2 ul {
+	font-size: 14px;
+	color: #666666;
+}
+
+.main .xiangqing .xqphotoright .xhr_2 ul li {
+	margin:2px 15px 0 0 ;
+	float: left;
+	white-space:nowrap; 
+    text-overflow:ellipsis; 
+    width:200px;
+    overflow: hidden; 
+}
+
+.main .xiangqing .xqphotoright .xhr_2 ul li span {
+	display: -moz-inline-box;
+	display: inline-block;
+	color: #25a8e0;
+}
+
+.main .jjxqTable {
+	border: 1px solid #e6e6e6;
+	margin-top: 10px;
+	background: #ffffff;
+}
+
+.main .jjxqTable .jtab a {
+	display: block;
+	float: left;
+	width: 141px;
+	height: 60px;
+	border: 1px solid #e6e6e6;
+	border-right: none;
+	text-align: center;
+	line-height: 60px;
+	font-size: 16px;
+	color: #999999;
+	background: #fafafa;
+}
+
+.main .jjxqTable .jtab a.tba_1 {
+	width: 146px;
+	border-left: 0;
+}
+
+.main .jjxqTable .jtab a:hover, .main .jjxqTable .jtab a.active {
+	border-bottom: 0;
+	border-top: 2px solid #31ace2;
+	height: 59px;
+	line-height: 59px;
+	color: #31ace2;
+	background: #ffffff;
+}
+
+.main .jjxqTable .jjtz .j_1 {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_top span, .main .jjxqTable .jjtz .j_2 .j_2Top span,
+	.main .jjxqTable .jjtz .j_3 .j_3Top span {
+	float: left;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_top span em, .main .jjxqTable .jjtz .j_2 .j_2Top span em,
+	.main .jjxqTable .jjtz .j_3 .j_3Top span em {
+	font-style: normal;
+	font-size: 12px;
+	color: #999999;
+	margin-left: 5px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_top .sel, .main .jjxqTable .jjtz .j_2 .j_2Top .sel,
+	.main .jjxqTable .jjtz .j_2 {
+	float: right;
+	font-size: 12px;
+	color: #666666;
+	line-height: 18px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_top .sel select, .main .jjxqTable .jjtz .j_2 .j_2Top .sel select
+	{
+	width: 74px;
+	height: 18px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom {
+	margin-top: 10px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_left {
+	float: left;
+	width: 546px;
+	height: 245px;
+	border-right: 1px dotted #e6e6e6;
+	position: relative;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_left a {
+	color: #8bd6f6;
+	position: absolute;
+	font-style: 12px;
+	left: 66px;
+	top: 0px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right {
+	float: left;
+	width: 410px;
+	margin-left: 20px;
+	margin-top: 7px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table {
+	table-layout: fixed;
+	width: 410px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table thead tr {
+	background: #cce7f2;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table tr {
+	height: 30px;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table tr:nth-child(even)
+	{
+	background: #f5fafc;
+}
+
+.main .jjxqTable .jjtz .j_1 .jz_bottom .jzb_right table tr td a {
+	color: #31ade2;
+}
+
+.main .jjxqTable .jjtz .j_2, .main .jjxqTable .jjtz .j_3 {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom {
+	margin-top: 10px;
+	position: relative;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom a.tip {
+	color: #8bd6f6;
+	position: absolute;
+	font-style: 12px;
+	left: 138px;
+	top: 0px;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom .tongj {
+	width: 700px;
+	height: 250px;
+	margin: 20px auto;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table {
+	table-layout: fixed;
+	width: 960px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table thead tr {
+	background: #cce7f2;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr td {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	padding: 0 5px;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr {
+	height: 30px;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr:nth-child(even) {
+	background: #f5fafc;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr td span {
+	color: #25a8e0;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr td span.up {
+	color: #ea5604;
+}
+
+.main .jjxqTable .jjtz .j_2 .j_2bottom table tr td a {
+	color: #ea5604;
+}
+
+.main .jjxqTable .jjtz .j_3 .tablebox table {
+	table-layout: fixed;
+	width: 469px;
+	float: left;
+	margin: 10px 10px;
+	text-align: center;
+}
+
+.main .jjxqTable .jjtz .j_3 .tablebox table thead tr {
+	background: #cce7f2;
+}
+
+.main .jjxqTable .jjtz .j_3 .tablebox table tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjtz .j_3 .tablebox table tr {
+	height: 30px;
+}
+
+.main .jjxqTable .jjtz .j_3 .tablebox table tr:nth-child(even) {
+	background: #f5fafc;
+}
+
+.main .jjxqTable .jjjl {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjjl h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+}
+.main .jjxqTable .jjjl .jl{
+	border: 1px solid #e6e6e6;
+	margin-top: 10px;
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo {
+	height: 37px;
+	line-height: 37px;
+	font-size: 12px;
+	color: #666666;
+	background: #cce7f2;
+	
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo a {
+	display: block;
+	float: left;
+	height: 37px;
+	line-height: 37px;
+	padding-left: 40px;
+	font-size: 18px;
+	color: #31ace2;
+	margin-right: 20px;
+	background: url('../../images/jingliIco.png') 13px 9px no-repeat;
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo div {
+	float: left;
+	color: #666666;
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo div span {
+	margin-right: 15px;
+	padding-right: 15px;
+	line-height: 12px;
+	border-right: 1px solid #666666;
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo div span em {
+	font-style: normal;
+}
+
+.main .jjxqTable .jjjl .jl .jlinfo div span.noborder {
+	border: 0;
+}
+
+.main .jjxqTable .jjjl .jl .jljj {
+	padding: 10px 0;
+}
+
+.main .jjxqTable .jjjl .jl .jljj p {
+	font-size: 12px;
+	color: #999999;
+	position: relative;
+	padding-left: 18px;
+}
+/*
+.main .jjxqTable .jjjl .jl .jljj p:before {
+	display: block;
+	width: 5px;
+	height: 5px;
+	background: #31ace2;
+	position: absolute;
+	top: 13px;
+	left: 4px;
+	content: "";
+}
+*/
+.main .jjxqTable .jjjl .jl .jljj p span{
+	display: block;
+	width: 5px;
+	height: 5px;
+	background: #31ace2;
+	position: absolute;
+	top: 6px;
+	left: 4px;
+	text-indent: -9999px;
+}
+
+.main .jjxqTable .jjjl .jl table {
+	table-layout: fixed;
+	width: 976px;
+	text-align: center;
+}
+
+.main .jjxqTable .jjjl .jl table thead tr {
+	height: 37px;
+	line-height: 37px;
+	font-size: 12px;
+	color: #626468;
+	background: #cce7f2;
+}
+
+.main .jjxqTable .jjjl .jl table tbody tr {
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #999999;
+}
+
+.main .jjxqTable .jjjl .jl table tbody tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjjl .jl table tr:nth-child(even) {
+	background: #f5fafc;
+}
+
+.main .jjxqTable .tldb {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .tldb h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+}
+
+.main .jjxqTable .tldb .tldb_tab {
+	border-bottom: 1px solid #cccccc;
+	margin-top: 15px;
+}
+
+.main .jjxqTable .tldb .tldb_tab a {
+	display: block;
+	width: 120px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+	color: #cccccc;
+	float: left;
+}
+
+.main .jjxqTable .tldb .tldb_tab a.active, .main .jjxqTable .tldb .tldb_tab a:hover
+	{
+	height: 32px;
+	border-bottom: 3px solid #3399cc;
+	color: #666666
+}
+
+.main .jjxqTable .tldb .tb_1, .main .jjxqTable .tldb .tb_2 {
+	padding-top: 10px;
+	position: relative;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top, .main .jjxqTable .tldb .tb_2 .tb_2top
+	{
+	position: absolute;
+	right: 0px;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top .sx, .main .jjxqTable .tldb .tb_2 .tb_2top .sx
+	{
+	float: left;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top .sx a, .main .jjxqTable .tldb .tb_2 .tb_2top .sx a
+	{
+	display: block;
+	width: 33px;
+	height: 16px;
+	text-align: center;
+	line-height: 16px;
+	border: 1px solid #cccccc;
+	font-size: 12px;
+	color: #666666;
+	float: left;
+	margin-right: 10px;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top .sx a:hover, .main .jjxqTable .tldb .tb_1 .tb_1top .sx a.active,
+	.main .jjxqTable .tldb .tb_2 .tb_2top .sx a:hover, .main .jjxqTable .tldb .tb_2 .tb_2top .sx a.active
+	{
+	height: 18px;
+	width: 35px;
+	border: 0px;
+	line-height: 18px;
+	color: #ffffff;
+	background: #3399cc;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top .sel, .main .jjxqTable .tldb .tb_2 .tb_2top .sel
+	{
+	float: left;
+	font-size: 12px;
+	color: #666666;
+	line-height: 15px;
+}
+
+.main .jjxqTable .tldb .tb_1 .tb_1top .sel select, .main .jjxqTable .tldb .tb_2 .tb_2top .sel select
+	{
+	width: 98px;
+	height: 17px;
+	line-height:17px;
+	border: 1px solid #707070;
+}
+
+.main .jjxqTable .tldb .tb_1 .tj, .main .jjxqTable .tldb .tb_2 .tj {
+	width: 930px;
+	height: 230px;
+	margin: 40px auto;
+}
+
+.main .jjxqTable .jjpj {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjpj .tabox h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+}
+
+.main .jjxqTable .jjpj .tabox table {
+	table-layout: fixed;
+	width: 980px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.main .jjxqTable .jjpj .tabox table thead tr {
+	height: 37px;
+	line-height: 37px;
+	font-size: 14px;
+	color: #666666;
+	background: #cce7f2;
+}
+
+.main .jjxqTable .jjpj .tabox table tr {
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	color: #999999;
+}
+
+.main .jjxqTable .jjpj .tabox table tr:nth-child(even) {
+	background: #f5fafc;
+}
+
+.main .jjxqTable .jjpj .tabox table tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjpj .pbox {
+	border-top: 1px solid #e6e6e6;
+	padding: 10px 5px;
+}
+
+.main .jjxqTable .jjpj .pbox span {
+	display: block;
+	float: left;
+	width: 30px;
+}
+
+.main .jjxqTable .jjpj .pbox p {
+	float: left;
+	width: 930px;
+}
+
+.main .jjxqTable .bggmbd {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .bggmbd p {
+	font-size: 12px;
+	color: #999999;
+}
+
+.main .jjxqTable .bggmbd p span {
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 5px;
+	margin-right: 10px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .tab_button a {
+	display: block;
+	width: 120px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	font-size: 14px;
+	color: #cccccc;
+	float: left;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .tab_button a.active, .main .jjxqTable .bggmbd .bgmbd_tab .tab_button a:hover
+	{
+	height: 32px;
+	border-bottom: 3px solid #3399cc;
+	color: #666666
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 {
+	border-top: 1px solid #cccccc;
+	padding: 10px 5px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .btb_1top .tjt {
+	width: 950px;
+	height: 250px;
+	float: left;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip {
+	float: left;
+	padding: 90px 0 0 70px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip div {
+	line-height: 15px;
+	margin-bottom: 15px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip a {
+	display: block;
+	width: 36px;
+	height: 15px;
+	float: left;
+	margin-right: 15px;
+	text-indent: -9999px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip span {
+	float: left;
+	font-size: 12px;
+	color: #999999;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip .tip1 {
+	background: #8bf6cc;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip .tip2 {
+	background: #8baef6;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1 .tip .tip3 {
+	background: #8bd6f6;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom {
+	margin-top: 20px;
+	padding: 10px 0px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom table {
+	table-layout: fixed;
+	width: 970px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom table thead tr {
+	height: 37px;
+	line-height: 37px;
+	font-size: 14px;
+	color: #666666;
+	background: #cce7f2;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom table tbody tr {
+	height: 30px;
+	line-height: 30px;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom table tbody tr:nth-child(even)
+	{
+	background: #f5fafc;
+}
+
+.main .jjxqTable .bggmbd .bgmbd_tab .btb_1bottom table tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjfl {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left {
+	width: 548px;
+	float: left;
+	margin-right: 20px;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+	margin: 10px 0;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left table {
+	table-layout: fixed;
+	width: 546px;
+	border: 1px solid #e6e6e6;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left table thead tr, .main .jjxqTable .jjfl .flTop .ftop_right table thead tr
+	{
+	height: 37px;
+	line-height: 37px;
+	background: #cce7f2;
+	font-size: 16px;
+	color: #666666;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left table tbody tr, .main .jjxqTable .jjfl .flTop .ftop_right table tbody
+	{
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	background: #f5fafc;
+	padding-top: 10px;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_left table tr td, .main .jjxqTable .jjfl .flTop .ftop_left table tr td
+	{
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_right {
+	width: 410px;
+	float: left;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_right h3 {
+	font-weight: normal;
+	font-size: 14px;
+	color: #31ade2;
+	border-left: 2px solid #31ade2;
+	padding-left: 10px;
+	line-height: 18px;
+	margin: 10px 0;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_right table {
+	table-layout: fixed;
+	width: 408px;
+	border: 1px solid #e6e6e6;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_right a {
+	display: block;
+	color: #ea5604;
+	font-size: 12px;
+}
+
+.main .jjxqTable .jjfl .flTop .ftop_right p {
+	font-size: 12px;
+	color: #666666;
+	line-height: 18px;
+	padding-left: 2px;
+}
+
+.main .jjxqTable .jjfl .flBottom {
+	margin-top: 30px;
+	padding: 5px 5px;
+}
+
+.main .jjxqTable .jjfl .flBottom p {
+	font-size: 12px;
+	color: #666666;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+
+.main .jjxqTable .jjfl .flBottom div {
+	height: 50px;
+}
+
+.main .jjxqTable .jjfl .flBottom div span {
+	display: block;
+	float: left;
+	height: 50px;
+	color: #ea5604;
+	line-height: 20px;
+	margin-right: 10px;
+}
+
+.main .jjxqTable .jjfl .flBottom div p {
+	display: block;
+	float: left;
+	height: 50px;
+	line-height: 20px;
+	margin: 0;
+}
+
+.main .jjxqTable .jjfl .flBottom p.x {
+	color: #999999;
+}
+
+.main .jjxqTable .jjgg {
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.main .jjxqTable .jjgg table {
+	table-layout: fixed;
+	width: 980px;
+	border: 1px solid #e6e6e6;
+	margin: 10px auto;
+	text-align: center;
+	font-size: 14px;
+}
+
+.main .jjxqTable .jjgg table thead tr {
+	height: 37px;
+	line-height: 37px;
+	background: #cce7f2;
+	color: #666666;
+}
+
+.main .jjxqTable .jjgg table tbody tr {
+	height: 30px;
+	line-height: 30px;
+	color: #999999;
+}
+
+.main .jjxqTable .jjgg table tbody tr td {
+	padding: 0 5px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.main .jjxqTable .jjgg table tbody tr td a {
+	color: #999999;
+}
+
+.main .jjxqTable .jjgg table tbody tr td a:hover {
+	color: #31ace2;
+}
+
+.main .jjxqTable .jjgg table tbody tr:nth-child(even) {
+	background: #f5fafc;
+}
+
+.highcharts-button {
+	display: none;
+}
+
+.table_tbody {
+	width: 410px;
+	display: block;
+	height: 200px;
+	overflow: auto;
+}

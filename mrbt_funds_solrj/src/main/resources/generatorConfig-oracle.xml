@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<!-- <classPathEntry location="D:/Workspaces/searcher/WebContent/WEB-INF/lib/ojdbc6.jar" /> -->
+	<classPathEntry location="D:/ojdbc6.jar" />
+	<context id="context1">
+		<!-- <plugin type="com.mrbt.utils.mybatis.MyBatisKeyPlugin"></plugin>
+		<plugin type="com.mrbt.utils.mybatis.MybatisExampleRootPlugin">
+			<property name="exampleRootClass" value="com.mrbt.oa.mvc.vo.BaseExample" />
+		</plugin> -->
+		
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.1.91:1521:orcl" userId="mrbt" password="123456" />
+		
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />  
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.mvc.model.funds"
+			targetProject="mrbt_funds_solrj" />
+		<sqlMapGenerator targetPackage="com.mvc.mapper.funds"
+			targetProject="mrbt_funds_solrj" />
+		<javaClientGenerator targetPackage="com.mvc.mapper.funds"
+			targetProject="mrbt_funds_solrj" type="XMLMAPPER" />
+		<table schema="" tableName="THS054"></table>
+	</context>
+</generatorConfiguration>

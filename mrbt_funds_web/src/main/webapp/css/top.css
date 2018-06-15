@@ -1,0 +1,247 @@
+﻿body{
+	background: #ffffff;
+}
+.top{
+	min-width: 1000px;
+	margin: 0px auto;
+	background: #ffffff;
+}
+.toptip{
+	font-family: "宋体";
+	font-size: 12px;
+	color: #666666;
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.toptip .tip_left{
+	width: 500px;
+	float: left;
+}
+.toptip .tip_left span,.toptip .tip_left a{
+	float: left;
+}
+.toptip .tip_left a{
+	display: block;
+	width: 17px; 
+	height: 17px;
+}
+.toptip .tip_left a.wexin{	
+	background: url('../images/shareIcon.png') 0px 0px no-repeat;
+	margin-top: 7px;
+}
+.toptip .tip_left a.sina{	
+	background: url('../images/shareIcon.png') -22px 0px no-repeat;
+	margin-top: 7px;
+	margin-left: 5px;
+}
+.toptip .tip_right{
+	width: 390px;
+	float: right;
+}
+.toptip .tip_right .tr_l{
+	float: left;
+	border-right: 1px solid #e5e5e5;
+	padding-right: 5px;
+}
+.toptip .tip_right .tr_r{
+	float: left;
+	width: 100px;
+}
+.toptip .tip_right .tr_r a{
+	display: block;
+	padding-left: 15px;
+	background: url('../images/newicon.jpg') 73px 9px no-repeat;
+}
+.toptip .tip_right .tr_l p{
+/* 	padding-left: 18px; */
+}
+.top .toptip .tip_right .tr_l p a{
+	color: #25a8e0;
+	margin: 0 5px;
+}
+.toptip .tip_right .tr_l p a.login{
+	border-right: 1px solid #e5e5e5;
+	padding-right: 8px;
+}
+
+.topNav,.toptip-wrap{
+	width: 1000px;
+	margin: 0px auto;
+}
+.topNav a.logo{
+	display: block;
+	float: left;
+}
+.topNav .nav{
+	float: left;
+	padding-left: 20px;
+}
+.topNav .nav ul{
+	padding-top: 26px;
+}
+.topNav .nav ul li {
+	padding: 0 5px;
+	min-width: 100px;
+	height: 30px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	color: #666666;
+	margin: 0 20px;
+	text-align: center;
+}
+.topNav .nav ul li:hover,.topNav .nav ul li.active{
+	border-bottom: 2px solid  #e60021;
+}
+.topNav .userinfo{
+	width: 110px;
+	float: right;
+	padding-top: 18px;
+	position: relative;
+}
+.topNav .userinfo .user{
+		width: 110px;
+		height: 35px;
+		line-height: 35px;
+		border: 1px solid #e5e5e5;
+		background: #fafafa url('../images/usericon.png') 10px 9px no-repeat;
+		text-align: center;
+		font-size: 14px;
+}
+.topNav .userinfo .user a{
+	display: block;
+	background: url('../images/userselect.png') 87px 15px no-repeat;
+}
+.topNav .userinfo .userTable{
+	width: 110px;
+	background: #ffffff;
+	position: absolute;
+	top: 55px;
+	left: 0px;
+	display: none;
+
+}
+.topNav .userinfo .userTable a{
+	display: block;
+	width: 110px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+}
+
+#bottom_background{
+	background: url('../images/bottom_bg.jpg') 0px 0px;
+}
+
+#bottom_main{
+	padding-top:10px;
+	width: 1000px;
+	margin: 20px auto 0px ;
+	padding-bottom: 10px;
+}
+
+#bottom_main .bm_top{
+	height: 36px;
+	line-height: 36px;
+	font-size: 12px;
+	color: #666666;
+	padding-left: 24px;
+}
+#bottom_main .bm_top a{
+	margin-right: 20px;
+}
+#bottom_main .bm_top a img{
+	margin: 0 20px;
+}
+#bottom_main .bm_cent{
+	margin-top: 30px;
+	padding-left: 36px;
+}
+#bottom_main .bm_cent .check_link{
+	float: left;
+	width: 345px;
+	border-right: 1px solid #e6e6e6;
+}
+#bottom_main .bm_cent .check_link a{
+	display:block;
+	float:left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+#bottom_main .bm_cent .check_link .link{
+	height: 81px;
+	margin-bottom: 12px;
+}
+#bottom_main .bm_cent .code_box{
+	float: left;
+}
+#bottom_main .bm_cent .code_box div{
+	float: left;
+	width: 85px;
+	margin: 0 15px;
+	text-align: center;
+}
+#bottom_main .bm_cent .code_box div img{
+	margin-bottom: 10px;
+}
+#bottom_main .bm_cent .hot_line{
+	float: left;
+	width: 310px;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-right: 1px solid #e6e6e6;
+}
+#bottom_main .bm_cent .hot_line p{
+	padding: 0;
+	
+}
+#bottom_main .bm_cent .hot_line p.tel{
+	padding-left: 43px;
+	background: url('../images/telicon.jpg') 0px 25px no-repeat;
+	padding-top:15px;
+	padding-bottom: 10px;
+}
+#bottom_main .bm_cent .hot_line p span{
+	font-size: 38px;
+	color: #ea560e;
+	margin-bottom: 10px;
+}
+#bottom_main .bm_cent .hot_line p i{
+	font-style: normal;
+	font-size: 12px;
+	color: #999999;
+}
+#bottom_main .bm_cent .hot_line p em{
+	font-style: normal;
+	font-size: 14px;
+	color: #666666；
+}
+#bottom_background .copyright{
+	padding: 10px 0;
+	text-align: center;
+	background:#fafafa;
+	font-style: 12px;
+	color: #999999;
+}
+
+.wather_iframe{
+	position: relative;
+  	top: 5px;
+}
+
+.phcolor{
+	color:#999;
+}
+
+
+
+
+
+
+
+
+

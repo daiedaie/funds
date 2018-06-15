@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+            http://www.springframework.org/schema/context   
+            http://www.springframework.org/schema/context/spring-context-4.1.xsd  
+            http://www.springframework.org/schema/mvc  
+            http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+            http://www.springframework.org/schema/tx
+			http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+            http://www.springframework.org/schema/aop
+        	http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
+        	http://www.springframework.org/schema/task  
+			http://www.springframework.org/schema/task/spring-task-4.1.xsd ">
+			
+	<context:property-placeholder location="classpath:quartzTime.properties"
+		ignore-unresolvable="true" />
+	<!-- 启动触发器的配置开始 -->
+	<!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序  -->
+	<bean name="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="triggers">
+			<list>
+				<ref bean="fundMarketIndexGenerateJobTrigger" />				
+				<ref bean="fundNetValueIndexGenerateJobTrigger" />				
+			</list>
+		</property>
+	</bean>
+	<!-- 启动触发器的配置结束 -->
+	<!--基金超市触发-->
+	<bean id="fundMarketIndexGenerateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="fundMarketIndexGenerateJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>${Fund_Market}</value>
+		</property>
+	</bean>
+	
+	<!--基金净值触发-->
+	<bean id="fundNetValueIndexGenerateJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail">
+			<ref bean="fundNetValueIndexGenerateJobDetail" />
+		</property>
+		<property name="cronExpression">
+			<value>${Fund_NetValue}</value>
+		</property>
+	</bean>
+	<!-- 调度的配置结束 -->
+
+	<!-- job的配置开始 -->
+	<!--基金超市-->
+	<bean id="fundMarketIndexGenerateJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="fundMarketIndexGenerateJob" />
+		</property>
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+	
+	<!--基金净值-->
+	<bean id="fundNetValueIndexGenerateJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="fundNetValueIndexGenerateJob" />
+		</property>
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+	<!-- job的配置结束 -->
+
+	<!--基金超市索引工作任务 -->
+	<bean id="fundMarketIndexGenerateJob" class="com.mrbt.mvc.service.quartz.FundMarketIndexGenerateJob" />
+	
+	<!--基金净值索引工作任务-->
+	<bean id="fundNetValueIndexGenerateJob" class="com.mrbt.mvc.service.quartz.FundNetValueIndexGenerateJob" />
+</beans>  
